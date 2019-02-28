@@ -80,3 +80,11 @@ void RoboCatServer::TakeDamage( int inDamagingPlayerId )
 	//tell the world our health dropped
 	NetworkManagerServer::sInstance->SetStateDirty( GetNetworkId(), ECRS_Health );
 }
+
+void RoboCatServer::IncHealth()
+{
+    if(mHealth < 15)
+        mHealth++;
+    
+    NetworkManagerServer::sInstance->SetStateDirty( GetNetworkId(), ECRS_Health );
+}
