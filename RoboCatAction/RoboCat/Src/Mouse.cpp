@@ -4,6 +4,7 @@ Mouse::Mouse()
 {
 	SetScale( GetScale() * 0.5f );
 	SetCollisionRadius( 0.25f );
+	SetVelocity(Vector3(1, 1, 0) * 0.01f);
 }
 
 
