@@ -1,10 +1,17 @@
 #include <RoboCatPCH.h>
 
+
 Mouse::Mouse()
 {
 	SetScale( GetScale() * 0.5f );
 	SetCollisionRadius( 0.25f );
 	SetVelocity(Vector3(1, 1, 0) * 0.01f);
+}
+
+void Mouse::Update()
+{
+	float deltaTime = Timing::sInstance.GetDeltaTime();
+	SetLocation(GetLocation() + GetVelocity() * deltaTime);
 }
 
 
@@ -13,6 +20,7 @@ bool Mouse::HandleCollisionWithCat( RoboCat* inCat )
 	( void ) inCat;
 	return false;
 }
+
 
 
 
