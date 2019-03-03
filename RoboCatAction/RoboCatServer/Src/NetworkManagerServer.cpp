@@ -158,8 +158,6 @@ void NetworkManagerServer::SendStatePacketToClient( ClientProxyPtr inClientProxy
 
 	AddScoreBoardStateToPacket( statePacket );
 
-
-
 	inClientProxy->GetReplicationManagerServer().Write( statePacket );
 	SendPacket( statePacket, inClientProxy->GetSocketAddress() );
 	
@@ -196,12 +194,6 @@ void NetworkManagerServer::AddWorldStateToPacket( OutputMemoryBitStream& inOutpu
 void NetworkManagerServer::AddScoreBoardStateToPacket( OutputMemoryBitStream& inOutputStream )
 {
 	ScoreBoardManager::sInstance->Write( inOutputStream );
-}
-
-void NetworkManagerServer::AddMiceToPacket(OutputMemoryBitStream& inOutputStream)
-{
-	//get all mice and write their data in
-	//ScoreBoardManager::sInstance->Write(inOutputStream);
 }
 
 

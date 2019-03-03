@@ -1,5 +1,4 @@
 #include <RoboCatServerPCH.h>
-
 const float HALF_WORLD_HEIGHT = 3.6f;
 const float HALF_WORLD_WIDTH = 6.4f;
 
@@ -13,11 +12,7 @@ void MouseServer::Update()
 	ProcessCollisionsWithScreenWalls();
 }
 
-uint32_t MouseServer::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const
-{
-	LOG("Server Sent", 0);
-	return Mouse::Write(inOutputStream, inDirtyState);
-}
+
 
 void MouseServer::HandleDying()
 {

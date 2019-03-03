@@ -31,7 +31,6 @@ private:
 			
 			void	AddWorldStateToPacket( OutputMemoryBitStream& inOutputStream );
 			void	AddScoreBoardStateToPacket( OutputMemoryBitStream& inOutputStream );
-			void	AddMiceToPacket(OutputMemoryBitStream& inOutputStream);
 
 			void	SendStatePacketToClient( ClientProxyPtr inClientProxy );
 			void	WriteLastMoveTimestampIfDirty( OutputMemoryBitStream& inOutputStream, ClientProxyPtr inClientProxy );
