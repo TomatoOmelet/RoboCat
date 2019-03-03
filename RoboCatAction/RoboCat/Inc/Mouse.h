@@ -18,9 +18,19 @@ public:
 	virtual uint32_t	Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState ) const override;
 	virtual void		Read( InputMemoryBitStream& inInputStream ) override;
 
+	virtual void Update() override;
+
 	virtual bool HandleCollisionWithCat( RoboCat* inCat ) override;
 
-protected:
-	Mouse();
+	const Vector3&	GetVelocity() const { return mVelocity; }
+	void SetVelocity(const Vector3& inVelocity) { mVelocity = inVelocity; }
 
+
+
+	
+
+protected:
+	Vector3 mVelocity;
+	Mouse();
+	void ProcessCollisionsWithScreenWalls();
 };

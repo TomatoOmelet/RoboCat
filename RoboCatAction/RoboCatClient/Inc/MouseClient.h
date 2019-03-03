@@ -6,6 +6,7 @@ public:
 protected:
 	MouseClient();
 
+
 private:
 
 	SpriteComponentPtr	mSpriteComponent;
