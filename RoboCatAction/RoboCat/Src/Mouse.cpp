@@ -6,7 +6,9 @@ Mouse::Mouse()
 {
 	SetScale( GetScale() * 0.5f );
 	SetCollisionRadius( 0.25f );
-	SetVelocity(Vector3(1, 1, 0)*0.1f);
+	Vector3 minVelocity = Vector3(-1, -1, 0);
+	Vector3 maxVelocity = Vector3(1, 1, 0);
+	SetVelocity(RoboMath::GetRandomVector(minVelocity, maxVelocity));
 }
 
 void Mouse::Update()
