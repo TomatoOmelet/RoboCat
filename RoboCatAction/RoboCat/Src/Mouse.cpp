@@ -13,7 +13,7 @@ void Mouse::Update()
 {
 	float deltaTime = Timing::sInstance.GetDeltaTime();
 	SetLocation(GetLocation() + GetVelocity() * deltaTime);
-	ProcessCollisionsWithScreenWalls();
+	//ProcessCollisionsWithScreenWalls();
 }
 
 void Mouse::ProcessCollisionsWithScreenWalls()

@@ -6,6 +6,11 @@ MouseServer::MouseServer()
 {
 }
 
+void MouseServer::Update()
+{
+	Mouse::Update();
+	ProcessCollisionsWithScreenWalls();
+}
 
 
 
