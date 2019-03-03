@@ -10,6 +10,7 @@ void MouseServer::Update()
 {
 	Mouse::Update();
 	ProcessCollisionsWithScreenWalls();
+	NetworkManagerServer::sInstance->SetStateDirty(GetNetworkId(), EMRS_Pose);
 }
 
 
