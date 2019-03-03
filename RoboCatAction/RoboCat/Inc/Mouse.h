@@ -32,5 +32,5 @@ public:
 protected:
 	Vector3 mVelocity;
 	Mouse();
-	
+	void ProcessCollisionsWithScreenWalls();
 };
