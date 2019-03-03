@@ -107,6 +107,7 @@ void NetworkManagerClient::HandleStatePacket( InputMemoryBitStream& inInputStrea
 		//HandleGameObjectState( inPacketBuffer );
 		HandleScoreBoardState( inInputStream );
 
+		HandleMiceState(inInputStream);
 		//tell the replication manager to handle the rest...
 		mReplicationManagerClient.Read( inInputStream );
 	}
@@ -173,6 +174,12 @@ void NetworkManagerClient::HandleGameObjectState( InputMemoryBitStream& inInputS
 void NetworkManagerClient::HandleScoreBoardState( InputMemoryBitStream& inInputStream )
 {
 	ScoreBoardManager::sInstance->Read( inInputStream );
+}
+
+void NetworkManagerClient::HandleMiceState(InputMemoryBitStream& inInputStream)
+{
+	//ask all mouse to read
+	//ScoreBoardManager::sInstance->Read(inInputStream);
 }
  
 void NetworkManagerClient::DestroyGameObjectsInMap( const IntToGameObjectMap& inObjectsToDestroy )
