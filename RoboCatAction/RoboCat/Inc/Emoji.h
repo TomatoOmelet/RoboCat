@@ -2,7 +2,7 @@ class Emoji : public GameObject
 {
 public:
 
-	CLASS_IDENTIFICATION('EMOJI', GameObject)
+	CLASS_IDENTIFICATION('EMO', GameObject)
 
 		enum EEmojiReplicationState
 	{
@@ -15,7 +15,7 @@ public:
 
 	static	GameObject*	StaticCreate() { return new Emoji(); }
 
-	virtual uint32_t	GetAllStateMask()	const override { return EYRS_AllState; }
+	virtual uint32_t	GetAllStateMask()	const override { return EERS_AllState; }
 
 	virtual uint32_t	Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const override;
 

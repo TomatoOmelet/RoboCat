@@ -94,6 +94,9 @@
     <ClInclude Include="Inc\Milk.h">
       <Filter>Inc</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\Emoji.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\GameObject.cpp">
@@ -163,6 +166,9 @@
       <Filter>Src</Filter>
     </ClCompile>
     <ClCompile Include="Src\Milk.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Emoji.cpp">
       <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>

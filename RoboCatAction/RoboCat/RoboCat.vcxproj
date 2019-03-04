@@ -371,6 +371,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Inc\Emoji.h" />
     <ClInclude Include="Inc\Milk.h" />
     <ClInclude Include="Inc\Yarn.h" />
     <ClInclude Include="Inc\Engine.h" />
@@ -398,6 +399,7 @@
     <ClInclude Include="Inc\UDPSocket.h" />
     <ClInclude Include="Inc\WeightedTimedMovingAverage.h" />
     <ClInclude Include="Inc\World.h" />
+    <ClCompile Include="Src\Emoji.cpp" />
     <ClCompile Include="Src\Milk.cpp" />
     <ClCompile Include="Src\Yarn.cpp" />
     <ClCompile Include="Src\Engine.cpp" />
