@@ -1,6 +1,9 @@
 #include <RoboCatClientPCH.h>
+#include <vector>
 
+using namespace std;
 
+//vector<InputState> states;
 
 RoboCatClient::RoboCatClient() :
 	mTimeLocationBecameOutOfSync( 0.f ),
@@ -26,6 +29,20 @@ void RoboCatClient::Update()
 {
 	//for now, we don't simulate any movement on the client side
 	//we only move when the server tells us to move
+    
+    // Need a way to store the RobotCat's rotation, speed, and location
+    RoboCat::ProcessInput(<#float inDeltaTime#>, <#const InputState &inInputState#>);
+    
+    /*
+     Send input to server
+     Get info on location, speed, and rotation from server
+     if(data != server) {
+        reset location, speed, and rotation to server
+        reset state history to the update version from server
+     }
+     
+     */
+    
 }
 
 void RoboCatClient::Read( InputMemoryBitStream& inInputStream )
