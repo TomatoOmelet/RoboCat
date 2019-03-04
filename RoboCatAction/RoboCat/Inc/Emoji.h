@@ -28,7 +28,7 @@ public:
 
 	virtual bool HandleCollisionWithCat(RoboCat* inCat) override;
 	
-	Vector3 yDiff = Vector3(0, 2, 0);
+	Vector3 yDiff = Vector3(0, -1, 0);
 
 protected:
 	Emoji();
