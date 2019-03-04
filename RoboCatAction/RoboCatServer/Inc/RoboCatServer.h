@@ -15,6 +15,10 @@ public:
 	void SetCatControlType( ECatControlType inCatControlType ) { mCatControlType = inCatControlType; }
 
 	void TakeDamage( int inDamagingPlayerId );
+    
+    void IncHealth();
+    
+    void UpdateSpeed(int value);
 
 protected:
 	RoboCatServer();

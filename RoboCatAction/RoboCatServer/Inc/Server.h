@@ -20,5 +20,9 @@ private:
 
 	bool	InitNetworkManager();
 	void	SetupWorld();
+    
+    float mCurrentTime;
+    
+    float mMilkSpawnIntervals = 10.f;
 
 };
