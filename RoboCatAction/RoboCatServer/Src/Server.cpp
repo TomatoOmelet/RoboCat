@@ -97,10 +97,21 @@ void Server::SetupWorld()
 	CreateRandomMice( 10 );
     
     CreateRandomMilk(5);
+    
+    mCurrentTime = Timing::sInstance.GetTimef();
 }
 
 void Server::DoFrame()
 {
+    if(Timing::sInstance.GetFrameStartTime() > mCurrentTime + mMilkSpawnIntervals) {
+        mCurrentTime = Timing::sInstance.GetFrameStartTime();
+        
+        //LOG("Random: %f", );
+        CreateRandomMilk(5);
+        CreateRandomMice(7);
+    }
+    
+    
 	NetworkManagerServer::sInstance->ProcessIncomingPackets();
 
 	NetworkManagerServer::sInstance->CheckForDisconnects();

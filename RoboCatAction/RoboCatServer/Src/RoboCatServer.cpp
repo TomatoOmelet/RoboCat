@@ -90,6 +90,7 @@ void RoboCatServer::IncHealth()
 }
 
 void RoboCatServer::UpdateSpeed(int value){
-    mMaxLinearSpeed += value;
+    if(mMaxLinearSpeed < 240.f)
+        mMaxLinearSpeed += value;
 
 }

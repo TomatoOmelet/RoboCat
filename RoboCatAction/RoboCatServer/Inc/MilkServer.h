@@ -12,7 +12,12 @@ public:
     void HandleDying() override;
     virtual bool        HandleCollisionWithCat( RoboCat* inCat ) override;
     
+    virtual void    Update() override;
+    
 protected:
     MilkServer();
+    
+private:
+    float mTimeToDie;
     
 };

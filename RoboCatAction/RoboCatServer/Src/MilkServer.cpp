@@ -8,6 +8,7 @@
 
 MilkServer::MilkServer()
 {
+    mTimeToDie = Timing::sInstance.GetFrameStartTime() + (RoboMath::GetRandomFloat() * 20.f);
 }
 
 void MilkServer::HandleDying()
@@ -27,4 +28,12 @@ bool MilkServer::HandleCollisionWithCat( RoboCat* inCat )
     static_cast< RoboCatServer* >( inCat )->UpdateSpeed(10);
     
     return false;
+}
+
+void MilkServer::Update() {
+    
+    if( Timing::sInstance.GetFrameStartTime() > mTimeToDie )
+    {
+        SetDoesWantToDie( true );
+    }
 }
