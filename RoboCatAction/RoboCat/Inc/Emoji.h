@@ -2,7 +2,7 @@ class Emoji : public GameObject
 {
 public:
 
-	CLASS_IDENTIFICATION('EMO', GameObject)
+	CLASS_IDENTIFICATION('EMOJ', GameObject)
 
 		enum EEmojiReplicationState
 	{
