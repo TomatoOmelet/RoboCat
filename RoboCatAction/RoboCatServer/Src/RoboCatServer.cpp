@@ -88,3 +88,8 @@ void RoboCatServer::IncHealth()
     
     NetworkManagerServer::sInstance->SetStateDirty( GetNetworkId(), ECRS_Health );
 }
+
+void RoboCatServer::UpdateSpeed(int value){
+    mMaxLinearSpeed += value;
+
+}

@@ -24,6 +24,7 @@ bool MilkServer::HandleCollisionWithCat( RoboCat* inCat )
     ScoreBoardManager::sInstance->IncScore( inCat->GetPlayerId(), 1 );
     
     static_cast< RoboCatServer* >( inCat )->IncHealth();
+    static_cast< RoboCatServer* >( inCat )->UpdateSpeed(10);
     
     return false;
 }

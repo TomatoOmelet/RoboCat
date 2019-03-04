@@ -17,6 +17,8 @@ public:
 	void TakeDamage( int inDamagingPlayerId );
     
     void IncHealth();
+    
+    void UpdateSpeed(int value);
 
 protected:
 	RoboCatServer();
