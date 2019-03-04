@@ -19,7 +19,7 @@ Server::Server()
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'MOUS', MouseServer::StaticCreate );
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'YARN', YarnServer::StaticCreate );
     GameObjectRegistry::sInstance->RegisterCreationFunction( 'MILK', MilkServer::StaticCreate );
-
+	GameObjectRegistry::sInstance->RegisterCreationFunction( 'EMO' , EmojiServer::StaticCreate);
     
 	InitNetworkManager();
 	
@@ -82,6 +82,10 @@ namespace
             Vector3 mLocation = RoboMath::GetRandomVector( milkMin, milkMax );
             go->SetLocation( mLocation );
         }
+
+		//go = GameObjectRegistry::sInstance->CreateGameObject('EMO');
+		//Vector3 mLocation = RoboMath::GetRandomVector(milkMin, milkMax);
+		//go->SetLocation(mLocation);
     }
 
 
@@ -140,7 +144,10 @@ void Server::SpawnCatForPlayer( int inPlayerId )
 	cat->SetPlayerId( inPlayerId );
 	//gotta pick a better spawn location than this...
 	cat->SetLocation( Vector3( 1.f - static_cast< float >( inPlayerId ), 0.f, 0.f ) );
-
+	//spawn emoji for player too
+	//EmojiPtr emo = std::static_pointer_cast< Emoji >(GameObjectRegistry::sInstance->CreateGameObject('EMO'));
+	//emo->SetLocation(Vector3(0,0,0));
+	//emo->SetPlayerId(inPlayerId);
 }
 
 void Server::HandleLostClient( ClientProxyPtr inClientProxy )

@@ -2,7 +2,6 @@
 
 Emoji::Emoji() :
 	mMuzzleSpeed( 3.f ),
-	mVelocity( Vector3::Zero ),
 	mPlayerId( 0 )
 {
 	SetScale( GetScale() * 0.25f );
@@ -22,10 +21,6 @@ uint32_t Emoji::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 		Vector3 location = GetLocation();
 		inOutputStream.Write( location.mX );
 		inOutputStream.Write( location.mY );
-
-		Vector3 velocity = GetVelocity();
-		inOutputStream.Write( velocity.mX );
-		inOutputStream.Write( velocity.mY );
 
 		inOutputStream.Write( GetRotation() );
 
@@ -94,11 +89,5 @@ void Emoji::InitFromShooter( RoboCat* inShooter )
 
 void Emoji::Update()
 {
-	
-	float deltaTime = Timing::sInstance.GetDeltaTime();
-
-	SetLocation( GetLocation() + mVelocity * deltaTime );
-	
-
 	//we'll let the cats handle the collisions
 }
