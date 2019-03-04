@@ -42,6 +42,9 @@
     <ClCompile Include="Src\MilkServer.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="Src\EmojiServer.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\RoboCatServerPCH.h">
@@ -69,6 +72,9 @@
       <Filter>Inc</Filter>
     </ClInclude>
     <ClInclude Include="Inc\MilkServer.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\EmojiServer.h">
       <Filter>Inc</Filter>
     </ClInclude>
   </ItemGroup>
