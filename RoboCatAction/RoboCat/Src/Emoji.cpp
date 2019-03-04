@@ -15,7 +15,7 @@ uint32_t Emoji::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 {
 	uint32_t writtenState = 0;
 
-	if( inDirtyState & EYRS_Pose )
+	if( inDirtyState & EERS_Pose )
 	{
 		inOutputStream.Write( (bool)true );
 
@@ -29,33 +29,33 @@ uint32_t Emoji::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 
 		inOutputStream.Write( GetRotation() );
 
-		writtenState |= EYRS_Pose;
+		writtenState |= EERS_Pose;
 	}
 	else
 	{
 		inOutputStream.Write( (bool)false );
 	}
 
-	if( inDirtyState & EYRS_Color )
+	if( inDirtyState & EERS_Color )
 	{
 		inOutputStream.Write( (bool)true );
 
 		inOutputStream.Write( GetColor() );
 
-		writtenState |= EYRS_Color;
+		writtenState |= EERS_Color;
 	}
 	else
 	{
 		inOutputStream.Write( (bool)false );
 	}
 
-	if( inDirtyState & EYRS_PlayerId )
+	if( inDirtyState & EERS_PlayerId )
 	{
 		inOutputStream.Write( (bool)true );
 
 		inOutputStream.Write( mPlayerId, 8 );
 
-		writtenState |= EYRS_PlayerId;
+		writtenState |= EERS_PlayerId;
 	}
 	else
 	{

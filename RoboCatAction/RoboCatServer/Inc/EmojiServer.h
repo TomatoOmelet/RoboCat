@@ -10,7 +10,4 @@ public:
 protected:
 	EmojiServer();
 
-private:
-	float mTimeToDie;
-
 };

@@ -6,11 +6,11 @@ public:
 
 		enum EEmojiReplicationState
 	{
-		EYRS_Pose = 1 << 0,
-		EYRS_Color = 1 << 1,
-		EYRS_PlayerId = 1 << 2,
+		EERS_Pose = 1 << 0,
+		EERS_Texture = 1 << 1,
+		EERS_PlayerId = 1 << 2,
 
-		EYRS_AllState = EYRS_Pose | EYRS_Color | EYRS_PlayerId
+		EERS_AllState = EERS_Pose | EERS_Texture | EERS_PlayerId
 	};
 
 	static	GameObject*	StaticCreate() { return new Emoji(); }
