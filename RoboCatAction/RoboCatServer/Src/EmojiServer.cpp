@@ -11,7 +11,7 @@ void EmojiServer::Update()
 {
 	Emoji::Update();
 	SetLocation(mCat->GetLocation() + yDiff);
-	LOG(std::to_string(GetLocation().mX).c_str(), 0);
+	NetworkManagerServer::sInstance->SetStateDirty(GetNetworkId(), EERS_Pose);
 }
 
 bool EmojiServer::HandleCollisionWithCat( RoboCat* inCat )
