@@ -35,7 +35,7 @@ uint32_t Emoji::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 	{
 		inOutputStream.Write( (bool)true );
 
-		inOutputStream.Write( GetColor() );
+		inOutputStream.Write( mTex );
 
 		writtenState |= EERS_Texture;
 	}

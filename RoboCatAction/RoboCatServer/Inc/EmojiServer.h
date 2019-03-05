@@ -6,6 +6,8 @@ public:
 	virtual bool		HandleCollisionWithCat( RoboCat* inCat ) override;
 	void HandleDying() override;
 
+	virtual void		ChangeTexture(int index) override;
+
 	virtual void Update() override;
 
 protected:

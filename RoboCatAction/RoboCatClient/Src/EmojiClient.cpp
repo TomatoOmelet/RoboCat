@@ -6,28 +6,29 @@ EmojiClient::EmojiClient()
 	mSpriteComponent->SetTexture( TextureManager::sInstance->GetTexture( "angry" ) );
 }
 
-void EmojiClient::ChangeTexture(int index)
+
+void EmojiClient::SetTexture(int index)
 {
 	switch (index)
 	{
-	case 0:
-		{
-			mSpriteComponent.reset(new SpriteComponent(this));
-			mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("smile"));
-			break;
-		}
 	case 1:
-		{
-			mSpriteComponent.reset(new SpriteComponent(this));
-			mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("angry"));
-			break;
-		}
+	{
+		mSpriteComponent.reset(new SpriteComponent(this));
+		mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("smile"));
+		break;
+	}
+	case 2:
+	{
+		mSpriteComponent.reset(new SpriteComponent(this));
+		mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("angry"));
+		break;
+	}
 	default:
-		{
-			mSpriteComponent.reset(new SpriteComponent(this));
-			mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("cry"));
-			break;
-		}
+	{
+		mSpriteComponent.reset(new SpriteComponent(this));
+		mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("cry"));
+		break;
+	}
 	}
 }
 
@@ -52,9 +53,9 @@ void EmojiClient::Read( InputMemoryBitStream& inInputStream )
 	inInputStream.Read( stateBit );
 	if( stateBit )
 	{	
-		Vector3 color;
-		inInputStream.Read( color );
-		SetColor( color );
+		int texture;
+		inInputStream.Read(texture);
+		SetTexture(texture);
 	}
 
 	inInputStream.Read( stateBit );

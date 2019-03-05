@@ -50,11 +50,10 @@ void RoboCatServer::Update()
 void RoboCatServer::HandleEmoji()
 {
 	float time = Timing::sInstance.GetFrameStartTime();
-	if(emojiIndex >= 0)
+	if(emojiIndex > 0)
 	{
 		//not exact, but okay
 		mTimeOfNextEmoji = time + mTimeBetweenEmojis;
-
 
 		//Emojis!
 		EmojiPtr emo = std::static_pointer_cast< Emoji >(GameObjectRegistry::sInstance->CreateGameObject('EMOJ'));

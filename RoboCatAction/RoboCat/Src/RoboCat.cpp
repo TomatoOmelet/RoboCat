@@ -14,7 +14,7 @@ RoboCat::RoboCat() :
 	mThrustDir( 0.f ),
 	mPlayerId( 0 ),
 	mIsShooting( false ),
-	emojiIndex(-1),
+	emojiIndex(0),
 	mHealth( 10 )
 {
 	SetCollisionRadius( 0.5f );

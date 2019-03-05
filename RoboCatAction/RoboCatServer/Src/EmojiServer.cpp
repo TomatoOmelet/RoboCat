@@ -3,7 +3,7 @@
 
 EmojiServer::EmojiServer()
 {
-	mTimeToDie = Timing::sInstance.GetFrameStartTime() + 1.f;
+	mTimeToDie = Timing::sInstance.GetFrameStartTime() + 0.5f;
 }
 
 
@@ -19,6 +19,12 @@ void EmojiServer::Update()
 		SetLocation(mCat->GetLocation() + yDiff);
 		NetworkManagerServer::sInstance->SetStateDirty(GetNetworkId(), EERS_Pose);
 	}
+}
+
+void EmojiServer::ChangeTexture(int index)
+{
+	mTex = index;
+	NetworkManagerServer::sInstance->SetStateDirty(GetNetworkId(), EERS_Texture);
 }
 
 

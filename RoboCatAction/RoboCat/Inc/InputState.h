@@ -9,7 +9,7 @@ public:
 	mDesiredForwardAmount( 0 ),
 	mDesiredBackAmount( 0 ),
 	mIsShooting( false ),
-	mEmojiingIndex(-1)
+	mEmojiingIndex(0)
 	{}
 
 	float GetDesiredHorizontalDelta()	const { return mDesiredRightAmount - mDesiredLeftAmount; }

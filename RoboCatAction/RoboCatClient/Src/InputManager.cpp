@@ -38,12 +38,20 @@ namespace
 			ioVariable = 0.f;
 		}
 	}
+
+	inline void UpdateDesireEmojiFromKey(EInputAction inInputAction, int& ioVariable, int index)
+	{
+		if (inInputAction == EIA_Pressed)
+		{
+			ioVariable = index;
+		}
+	}
 }
 
 void InputManager::HandleInput( EInputAction inInputAction, int inKeyCode )
 {
 	//by default doesn't have emo
-	mCurrentState.mEmojiingIndex = -1;
+	mCurrentState.mEmojiingIndex = 0;
 	switch( inKeyCode )
 	{
 	case 'a':
@@ -86,17 +94,17 @@ void InputManager::HandleInput( EInputAction inInputAction, int inKeyCode )
 		}
 	case '1':
 		{
-			mCurrentState.mEmojiingIndex = 0;
+			UpdateDesireEmojiFromKey(inInputAction, mCurrentState.mEmojiingIndex, 1);
 			break;
 		}
 	case '2':
 		{
-			mCurrentState.mEmojiingIndex = 1;
+			UpdateDesireEmojiFromKey(inInputAction, mCurrentState.mEmojiingIndex, 2);
 			break;
 		}
 	case '3':
 		{
-			mCurrentState.mEmojiingIndex = 2;
+			UpdateDesireEmojiFromKey(inInputAction, mCurrentState.mEmojiingIndex, 3);
 			break;
 		}
 
