@@ -6,13 +6,13 @@ public:
 	virtual bool		HandleCollisionWithCat( RoboCat* inCat ) override;
 	void HandleDying() override;
 
-	virtual void Update() override;
+	virtual void		ChangeTexture(int index) override;
 
-	void SetCat(RoboCatPtr cat) { mCat = cat; }
+	virtual void Update() override;
 
 protected:
 	EmojiServer();
-	RoboCatPtr mCat;
-};
 
-typedef shared_ptr< EmojiServer >	EmojiServerPtr;
+private:
+	float mTimeToDie;
+};

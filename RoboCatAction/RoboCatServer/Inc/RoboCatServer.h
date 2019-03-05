@@ -20,17 +20,23 @@ public:
     
     void UpdateSpeed(int value);
 
+	void SetEmoji(EmojiPtr emo);
+
 protected:
 	RoboCatServer();
+	EmojiPtr emoji = nullptr;
 
 private:
 
 	void HandleShooting();
-
+	void HandleEmoji();
 	ECatControlType	mCatControlType;
 
 
 	float		mTimeOfNextShot;
 	float		mTimeBetweenShots;
 
+	//just in case the get input here is not GetButton(), add some interval
+	float		mTimeOfNextEmoji;
+	float		mTimeBetweenEmojis;
 };

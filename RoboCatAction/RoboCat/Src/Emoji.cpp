@@ -35,7 +35,7 @@ uint32_t Emoji::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 	{
 		inOutputStream.Write( (bool)true );
 
-		inOutputStream.Write( GetColor() );
+		inOutputStream.Write( mTex );
 
 		writtenState |= EERS_Texture;
 	}
@@ -77,10 +77,12 @@ bool Emoji::HandleCollisionWithCat( RoboCat* inCat )
 }
 
 
-void Emoji::InitFromShooter( RoboCat* inShooter )
+void Emoji::InitFromShooter( RoboCat* inShooter, int index)
 {
-	SetPlayerId( inShooter->GetPlayerId() );
-	SetLocation( inShooter->GetLocation() + yDiff);
+	SetLocation(inShooter->GetLocation() + yDiff);
+	SetPlayerId(inShooter->GetPlayerId());
+	SetCat(inShooter);
+	ChangeTexture(index);
 }
 
 void Emoji::Update()

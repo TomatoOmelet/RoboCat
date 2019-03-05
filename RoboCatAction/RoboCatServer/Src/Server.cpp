@@ -140,11 +140,6 @@ void Server::SpawnCatForPlayer( int inPlayerId )
 	cat->SetPlayerId( inPlayerId );
 	//gotta pick a better spawn location than this...
 	cat->SetLocation( Vector3( 1.f - static_cast< float >( inPlayerId ), 0.f, 0.f ) );
-	//spawn emoji for player too
-	EmojiServerPtr emo = std::static_pointer_cast< EmojiServer >(GameObjectRegistry::sInstance->CreateGameObject('EMOJ'));
-	emo->SetLocation(cat->GetLocation() + emo->yDiff);
-	emo->SetPlayerId(inPlayerId);
-	emo->SetCat(cat);
 }
 
 void Server::HandleLostClient( ClientProxyPtr inClientProxy )

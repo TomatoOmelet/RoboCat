@@ -1,3 +1,5 @@
+typedef unordered_map< int, EmojiPtr> IntToEmojiMap;
+
 class Server : public Engine
 {
 public:
@@ -24,5 +26,5 @@ private:
     float mCurrentTime;
     
     float mMilkSpawnIntervals = 10.f;
-
+	IntToEmojiMap emojiForCat;
 };
