@@ -19,7 +19,7 @@ Server::Server()
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'MOUS', MouseServer::StaticCreate );
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'YARN', YarnServer::StaticCreate );
     GameObjectRegistry::sInstance->RegisterCreationFunction( 'MILK', MilkServer::StaticCreate );
-
+	GameObjectRegistry::sInstance->RegisterCreationFunction( 'EMOJ' , EmojiServer::StaticCreate);
     
 	InitNetworkManager();
 	
@@ -140,7 +140,6 @@ void Server::SpawnCatForPlayer( int inPlayerId )
 	cat->SetPlayerId( inPlayerId );
 	//gotta pick a better spawn location than this...
 	cat->SetLocation( Vector3( 1.f - static_cast< float >( inPlayerId ), 0.f, 0.f ) );
-
 }
 
 void Server::HandleLostClient( ClientProxyPtr inClientProxy )

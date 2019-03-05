@@ -33,6 +33,7 @@ Client::Client()
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'MOUS', MouseClient::StaticCreate );
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'YARN', YarnClient::StaticCreate );
     GameObjectRegistry::sInstance->RegisterCreationFunction( 'MILK', MilkClient::StaticCreate );
+	GameObjectRegistry::sInstance->RegisterCreationFunction( 'EMOJ', EmojiClient::StaticCreate);
 
 	string destination = StringUtils::GetCommandLineArg( 1 );
 	string name = StringUtils::GetCommandLineArg( 2 );

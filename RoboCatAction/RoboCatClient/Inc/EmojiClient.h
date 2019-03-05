@@ -4,7 +4,8 @@ public:
 	static	GameObjectPtr	StaticCreate()		{ return GameObjectPtr( new EmojiClient() ); }
 
 	virtual void		Read( InputMemoryBitStream& inInputStream ) override;
-
+	
+	void SetTexture(int index);
 protected:
 	EmojiClient();
 

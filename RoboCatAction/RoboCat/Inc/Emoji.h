@@ -2,7 +2,7 @@ class Emoji : public GameObject
 {
 public:
 
-	CLASS_IDENTIFICATION('EMO', GameObject)
+	CLASS_IDENTIFICATION('EMOJ', GameObject)
 
 		enum EEmojiReplicationState
 	{
@@ -19,27 +19,28 @@ public:
 
 	virtual uint32_t	Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const override;
 
-	void			SetVelocity(const Vector3& inVelocity) { mVelocity = inVelocity; }
-	const Vector3&	GetVelocity() const { return mVelocity; }
-
 	void		SetPlayerId(int inPlayerId) { mPlayerId = inPlayerId; }
 	int			GetPlayerId() const { return mPlayerId; }
 
-	void		InitFromShooter(RoboCat* inShooter);
+	void		InitFromShooter(RoboCat* inShooter, int index);
 
 	virtual void Update() override;
 
 	virtual bool HandleCollisionWithCat(RoboCat* inCat) override;
 
+	virtual void SetCat(RoboCat* cat) { mCat = cat; }
+	virtual void ChangeTexture(int index) { mTex = index; }
+
+	Vector3 yDiff = Vector3(0, -1, 0);
+
 protected:
 	Emoji();
 
-
-	Vector3		mVelocity;
-
 	float		mMuzzleSpeed;
 	int			mPlayerId;
+	RoboCat* mCat;
 
+	int mTex;
 };
 
 typedef shared_ptr< Emoji >	EmojiPtr;

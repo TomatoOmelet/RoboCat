@@ -66,6 +66,7 @@ protected:
 	int					mHealth;
 
 	bool				mIsShooting;
+	int                 emojiIndex;
     float               mMaxLinearSpeed;
 
 	

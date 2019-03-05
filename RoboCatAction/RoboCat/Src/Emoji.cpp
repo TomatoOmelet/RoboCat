@@ -2,7 +2,6 @@
 
 Emoji::Emoji() :
 	mMuzzleSpeed( 3.f ),
-	mVelocity( Vector3::Zero ),
 	mPlayerId( 0 )
 {
 	SetScale( GetScale() * 0.25f );
@@ -23,10 +22,6 @@ uint32_t Emoji::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 		inOutputStream.Write( location.mX );
 		inOutputStream.Write( location.mY );
 
-		Vector3 velocity = GetVelocity();
-		inOutputStream.Write( velocity.mX );
-		inOutputStream.Write( velocity.mY );
-
 		inOutputStream.Write( GetRotation() );
 
 		writtenState |= EERS_Pose;
@@ -40,7 +35,7 @@ uint32_t Emoji::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 	{
 		inOutputStream.Write( (bool)true );
 
-		inOutputStream.Write( GetColor() );
+		inOutputStream.Write( mTex );
 
 		writtenState |= EERS_Texture;
 	}
@@ -82,23 +77,15 @@ bool Emoji::HandleCollisionWithCat( RoboCat* inCat )
 }
 
 
-void Emoji::InitFromShooter( RoboCat* inShooter )
+void Emoji::InitFromShooter( RoboCat* inShooter, int index)
 {
-	SetColor( inShooter->GetColor() );
-	SetPlayerId( inShooter->GetPlayerId() );
-
-	Vector3 forward = inShooter->GetForwardVector();
-	SetLocation( inShooter->GetLocation() /* + forward * 0.55f */ );
-
+	SetLocation(inShooter->GetLocation() + yDiff);
+	SetPlayerId(inShooter->GetPlayerId());
+	SetCat(inShooter);
+	ChangeTexture(index);
 }
 
 void Emoji::Update()
 {
-	
-	float deltaTime = Timing::sInstance.GetDeltaTime();
-
-	SetLocation( GetLocation() + mVelocity * deltaTime );
-	
-
 	//we'll let the cats handle the collisions
 }

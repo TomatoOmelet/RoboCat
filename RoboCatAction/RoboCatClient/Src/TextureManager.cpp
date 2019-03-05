@@ -14,7 +14,10 @@ TextureManager::TextureManager()
 	CacheTexture( "mouse", "../Assets/mouse.png" );
 	CacheTexture( "yarn", "../Assets/yarn.png" );
     CacheTexture( "milk", "../Assets/milk.png");
-	
+	CacheTexture("smile", "../Assets/smile.png");
+	CacheTexture("angry", "../Assets/angry.png");
+	CacheTexture("cry", "../Assets/cry.png");
+	CacheTexture("empty", "../Assets/empty.png");
 }
 
 TexturePtr	TextureManager::GetTexture( const string& inTextureName )
