@@ -9,3 +9,5 @@
 #include <RoboCatServer.h>
 #include <MouseServer.h>
 #include <YarnServer.h>
+#include <MilkServer.h>
+#include <EmojiServer.h>

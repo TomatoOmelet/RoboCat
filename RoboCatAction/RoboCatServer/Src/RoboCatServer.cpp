@@ -3,7 +3,9 @@
 RoboCatServer::RoboCatServer() :
 	mCatControlType( ESCT_Human ),
 	mTimeOfNextShot( 0.f ),
-	mTimeBetweenShots( 0.2f )
+	mTimeBetweenShots( 0.2f ),
+	mTimeOfNextEmoji(0.f),
+	mTimeBetweenEmojis(0.1f)
 {}
 
 void RoboCatServer::HandleDying()
@@ -33,8 +35,9 @@ void RoboCatServer::Update()
 
 		moveList.Clear();
 	}
-
+	HandleEmoji();
 	HandleShooting();
+	
 
 	if( !RoboMath::Is2DVectorEqual( oldLocation, GetLocation() ) ||
 		!RoboMath::Is2DVectorEqual( oldVelocity, GetVelocity() ) ||
@@ -44,18 +47,42 @@ void RoboCatServer::Update()
 	}
 }
 
+void RoboCatServer::HandleEmoji()
+{
+	float time = Timing::sInstance.GetFrameStartTime();
+	if(emojiIndex > 0)
+	{
+		//not exact, but okay
+		mTimeOfNextEmoji = time + mTimeBetweenEmojis;
+
+		//Emojis!
+		EmojiPtr emo = std::static_pointer_cast< Emoji >(GameObjectRegistry::sInstance->CreateGameObject('EMOJ'));
+		emo->InitFromShooter(this, emojiIndex);
+		SetEmoji(emo);
+	}
+}
+
 void RoboCatServer::HandleShooting()
 {
 	float time = Timing::sInstance.GetFrameStartTime();
-	if( mIsShooting && Timing::sInstance.GetFrameStartTime() > mTimeOfNextShot )
+	if (mIsShooting && Timing::sInstance.GetFrameStartTime() > mTimeOfNextShot)
 	{
 		//not exact, but okay
 		mTimeOfNextShot = time + mTimeBetweenShots;
 
 		//fire!
-		YarnPtr yarn = std::static_pointer_cast< Yarn >( GameObjectRegistry::sInstance->CreateGameObject( 'YARN' ) );
-		yarn->InitFromShooter( this );
+		YarnPtr yarn = std::static_pointer_cast< Yarn >(GameObjectRegistry::sInstance->CreateGameObject('YARN'));
+		yarn->InitFromShooter(this);
 	}
+}
+
+void RoboCatServer::SetEmoji(EmojiPtr emo)
+{
+	if (emoji != nullptr)
+	{
+		emoji->SetDoesWantToDie(true);
+	}
+	emoji = emo;
 }
 
 void RoboCatServer::TakeDamage( int inDamagingPlayerId )
@@ -68,6 +95,11 @@ void RoboCatServer::TakeDamage( int inDamagingPlayerId )
 
 		//and you want to die
 		SetDoesWantToDie( true );
+		//kill your best friend emoji, that happens sometime
+		if (emoji != nullptr)
+		{
+			emoji->SetDoesWantToDie(true);
+		}
 
 		//tell the client proxy to make you a new cat
 		ClientProxyPtr clientProxy = NetworkManagerServer::sInstance->GetClientProxy( GetPlayerId() );
@@ -79,4 +111,18 @@ void RoboCatServer::TakeDamage( int inDamagingPlayerId )
 
 	//tell the world our health dropped
 	NetworkManagerServer::sInstance->SetStateDirty( GetNetworkId(), ECRS_Health );
+}
+
+void RoboCatServer::IncHealth()
+{
+    if(mHealth < 15)
+        mHealth++;
+    
+    NetworkManagerServer::sInstance->SetStateDirty( GetNetworkId(), ECRS_Health );
+}
+
+void RoboCatServer::UpdateSpeed(int value){
+    if(mMaxLinearSpeed < 240.f)
+        mMaxLinearSpeed += value;
+
 }

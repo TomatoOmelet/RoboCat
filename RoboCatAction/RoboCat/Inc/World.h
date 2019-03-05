@@ -28,5 +28,4 @@ private:
 
 	std::vector< GameObjectPtr >	mGameObjects;
 
-
 };

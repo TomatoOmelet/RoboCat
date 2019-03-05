@@ -18,7 +18,9 @@ Server::Server()
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'RCAT', RoboCatServer::StaticCreate );
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'MOUS', MouseServer::StaticCreate );
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'YARN', YarnServer::StaticCreate );
-
+    GameObjectRegistry::sInstance->RegisterCreationFunction( 'MILK', MilkServer::StaticCreate );
+	GameObjectRegistry::sInstance->RegisterCreationFunction( 'EMOJ' , EmojiServer::StaticCreate);
+    
 	InitNetworkManager();
 	
 	// Setup latency
@@ -65,6 +67,22 @@ namespace
 			go->SetLocation( mouseLocation );
 		}
 	}
+    
+    
+    void CreateRandomMilk( int inCount )
+    {
+        Vector3 milkMin( -5.f, -3.f, 0.f );
+        Vector3 milkMax( 5.f, 3.f, 0.f );
+        GameObjectPtr go;
+        
+        //make a mouse somewhere- where will these come from?
+        for( int i = 0; i < inCount; ++i )
+        {
+            go = GameObjectRegistry::sInstance->CreateGameObject( 'MILK' );
+            Vector3 mLocation = RoboMath::GetRandomVector( milkMin, milkMax );
+            go->SetLocation( mLocation );
+        }
+    }
 
 
 }
@@ -77,10 +95,23 @@ void Server::SetupWorld()
 	
 	//spawn more random mice!
 	CreateRandomMice( 10 );
+    
+    CreateRandomMilk(5);
+    
+    mCurrentTime = Timing::sInstance.GetTimef();
 }
 
 void Server::DoFrame()
 {
+    if(Timing::sInstance.GetFrameStartTime() > mCurrentTime + mMilkSpawnIntervals) {
+        mCurrentTime = Timing::sInstance.GetFrameStartTime();
+        
+        //LOG("Random: %f", );
+        CreateRandomMilk(5);
+        CreateRandomMice(7);
+    }
+    
+    
 	NetworkManagerServer::sInstance->ProcessIncomingPackets();
 
 	NetworkManagerServer::sInstance->CheckForDisconnects();
@@ -109,7 +140,6 @@ void Server::SpawnCatForPlayer( int inPlayerId )
 	cat->SetPlayerId( inPlayerId );
 	//gotta pick a better spawn location than this...
 	cat->SetLocation( Vector3( 1.f - static_cast< float >( inPlayerId ), 0.f, 0.f ) );
-
 }
 
 void Server::HandleLostClient( ClientProxyPtr inClientProxy )

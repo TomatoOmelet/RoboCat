@@ -15,18 +15,28 @@ public:
 	void SetCatControlType( ECatControlType inCatControlType ) { mCatControlType = inCatControlType; }
 
 	void TakeDamage( int inDamagingPlayerId );
+    
+    void IncHealth();
+    
+    void UpdateSpeed(int value);
+
+	void SetEmoji(EmojiPtr emo);
 
 protected:
 	RoboCatServer();
+	EmojiPtr emoji = nullptr;
 
 private:
 
 	void HandleShooting();
-
+	void HandleEmoji();
 	ECatControlType	mCatControlType;
 
 
 	float		mTimeOfNextShot;
 	float		mTimeBetweenShots;
 
+	//just in case the get input here is not GetButton(), add some interval
+	float		mTimeOfNextEmoji;
+	float		mTimeBetweenEmojis;
 };

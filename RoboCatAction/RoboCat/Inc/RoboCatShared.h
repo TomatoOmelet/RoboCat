@@ -71,6 +71,8 @@ class GameObject;
 #include "World.h"
 #include "Timing.h"
 #include "Mouse.h"
+#include "Emoji.h"
+#include "Milk.h"
 #include "Yarn.h"
 #include "StringUtils.h"
 #include "ScoreBoardManager.h"

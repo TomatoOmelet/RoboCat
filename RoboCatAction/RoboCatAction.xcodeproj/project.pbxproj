@@ -76,6 +76,10 @@
 		035E46461C0651FB00CCB512 /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035E463D1C0651FB00CCB512 /* Server.cpp */; };
 		035E46471C0651FB00CCB512 /* ServerMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035E463E1C0651FB00CCB512 /* ServerMain.cpp */; };
 		035E46481C0651FB00CCB512 /* YarnServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 035E463F1C0651FB00CCB512 /* YarnServer.cpp */; };
+		E726A5932228827D0044FC36 /* Milk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E726A5922228827D0044FC36 /* Milk.cpp */; };
+		E726A5942228827D0044FC36 /* Milk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E726A5922228827D0044FC36 /* Milk.cpp */; };
+		E726A5972228836B0044FC36 /* MilkServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E726A5962228836B0044FC36 /* MilkServer.cpp */; };
+		E726A5992228846B0044FC36 /* MilkClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E726A5982228846B0044FC36 /* MilkClient.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -198,6 +202,12 @@
 		035E463E1C0651FB00CCB512 /* ServerMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ServerMain.cpp; sourceTree = "<group>"; };
 		035E463F1C0651FB00CCB512 /* YarnServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YarnServer.cpp; sourceTree = "<group>"; };
 		9202F92D1BFFE0DF00C30060 /* RoboCatActionServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RoboCatActionServer; sourceTree = BUILT_PRODUCTS_DIR; };
+		E726A591222881FA0044FC36 /* Milk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Milk.h; path = RoboCat/Inc/Milk.h; sourceTree = SOURCE_ROOT; };
+		E726A5922228827D0044FC36 /* Milk.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Milk.cpp; path = RoboCat/Src/Milk.cpp; sourceTree = SOURCE_ROOT; };
+		E726A595222883480044FC36 /* MilkServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MilkServer.h; sourceTree = "<group>"; };
+		E726A5962228836B0044FC36 /* MilkServer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MilkServer.cpp; sourceTree = "<group>"; };
+		E726A5982228846B0044FC36 /* MilkClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MilkClient.cpp; sourceTree = "<group>"; };
+		E726A59A2228847C0044FC36 /* MilkClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MilkClient.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +255,7 @@
 				033B271D1C065871005672A2 /* TextureManager.h */,
 				033B271E1C065871005672A2 /* WindowManager.h */,
 				033B271F1C065871005672A2 /* YarnClient.h */,
+				E726A59A2228847C0044FC36 /* MilkClient.h */,
 			);
 			path = Inc;
 			sourceTree = "<group>";
@@ -268,6 +279,7 @@
 				033B27301C065871005672A2 /* TextureManager.cpp */,
 				033B27311C065871005672A2 /* WindowManager.cpp */,
 				033B27321C065871005672A2 /* YarnClient.cpp */,
+				E726A5982228846B0044FC36 /* MilkClient.cpp */,
 			);
 			path = Src;
 			sourceTree = "<group>";
@@ -292,6 +304,7 @@
 				035E46311C0651FB00CCB512 /* RoboCatServerPCH.h */,
 				035E46321C0651FB00CCB512 /* Server.h */,
 				035E46331C0651FB00CCB512 /* YarnServer.h */,
+				E726A595222883480044FC36 /* MilkServer.h */,
 			);
 			path = Inc;
 			sourceTree = "<group>";
@@ -308,6 +321,7 @@
 				035E463D1C0651FB00CCB512 /* Server.cpp */,
 				035E463E1C0651FB00CCB512 /* ServerMain.cpp */,
 				035E463F1C0651FB00CCB512 /* YarnServer.cpp */,
+				E726A5962228836B0044FC36 /* MilkServer.cpp */,
 			);
 			path = Src;
 			sourceTree = "<group>";
@@ -370,6 +384,7 @@
 				035E45FA1C064F3000CCB512 /* WeightedTimedMovingAverage.h */,
 				035E45FB1C064F3000CCB512 /* World.h */,
 				035E45FC1C064F3000CCB512 /* Yarn.h */,
+				E726A591222881FA0044FC36 /* Milk.h */,
 			);
 			path = Inc;
 			sourceTree = "<group>";
@@ -399,6 +414,7 @@
 				035E46101C064F3E00CCB512 /* UDPSocket.cpp */,
 				035E46111C064F3E00CCB512 /* World.cpp */,
 				035E46121C064F3E00CCB512 /* Yarn.cpp */,
+				E726A5922228827D0044FC36 /* Milk.cpp */,
 			);
 			path = Src;
 			sourceTree = "<group>";
@@ -525,6 +541,7 @@
 				033B27381C065871005672A2 /* MouseClient.cpp in Sources */,
 				033B273F1C065871005672A2 /* Texture.cpp in Sources */,
 				033B273A1C065871005672A2 /* RenderManager.cpp in Sources */,
+				E726A5942228827D0044FC36 /* Milk.cpp in Sources */,
 				033B26F71C065833005672A2 /* Move.cpp in Sources */,
 				033B27411C065871005672A2 /* WindowManager.cpp in Sources */,
 				033B26F81C065833005672A2 /* Yarn.cpp in Sources */,
@@ -541,6 +558,7 @@
 				033B27331C065871005672A2 /* Client.cpp in Sources */,
 				033B27361C065871005672A2 /* HUD.cpp in Sources */,
 				033B27021C065833005672A2 /* GameObjectRegistry.cpp in Sources */,
+				E726A5992228846B0044FC36 /* MilkClient.cpp in Sources */,
 				033B27371C065871005672A2 /* InputManager.cpp in Sources */,
 				033B27031C065833005672A2 /* Engine.cpp in Sources */,
 				033B27351C065871005672A2 /* GraphicsDriver.cpp in Sources */,
@@ -552,12 +570,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E726A5972228836B0044FC36 /* MilkServer.cpp in Sources */,
 				035E46411C0651FB00CCB512 /* MouseServer.cpp in Sources */,
 				035E46261C064F3E00CCB512 /* UDPSocket.cpp in Sources */,
 				035E461A1C064F3E00CCB512 /* MoveList.cpp in Sources */,
 				035E46421C0651FB00CCB512 /* NetworkManagerServer.cpp in Sources */,
 				035E46211C064F3E00CCB512 /* SocketAddressFactory.cpp in Sources */,
 				035E461B1C064F3E00CCB512 /* NetworkManager.cpp in Sources */,
+				E726A5932228827D0044FC36 /* Milk.cpp in Sources */,
 				035E46161C064F3E00CCB512 /* InputState.cpp in Sources */,
 				035E46241C064F3E00CCB512 /* TCPSocket.cpp in Sources */,
 				035E46231C064F3E00CCB512 /* StringUtils.cpp in Sources */,

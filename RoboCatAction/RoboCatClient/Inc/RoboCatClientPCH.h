@@ -14,6 +14,8 @@
 #include <RoboCatClient.h>
 #include <MouseClient.h>
 #include <YarnClient.h>
+#include <MilkClient.h>
+#include <EmojiClient.h>
 
 #include <HUD.h>
 

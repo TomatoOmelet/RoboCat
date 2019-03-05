@@ -47,7 +47,6 @@ private:
 	Vector3				mVelocity;
 
 
-	float				mMaxLinearSpeed;
 	float				mMaxRotationSpeed;
 
 	//bounce fraction when hitting various things
@@ -67,6 +66,8 @@ protected:
 	int					mHealth;
 
 	bool				mIsShooting;
+	int                 emojiIndex;
+    float               mMaxLinearSpeed;
 
 	
 

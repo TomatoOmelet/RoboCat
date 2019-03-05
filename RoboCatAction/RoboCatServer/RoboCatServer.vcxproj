@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\EmojiServer.cpp" />
+    <ClCompile Include="Src\MilkServer.cpp" />
     <ClCompile Include="Src\YarnServer.cpp" />
     <ClCompile Include="Src\ClientProxy.cpp" />
     <ClCompile Include="Src\ReplicationManagerServer.cpp" />
@@ -25,6 +27,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Inc\EmojiServer.h" />
+    <ClInclude Include="Inc\MilkServer.h" />
     <ClInclude Include="Inc\YarnServer.h" />
     <ClInclude Include="Inc\ClientProxy.h" />
     <ClInclude Include="Inc\ReplicationManagerServer.h" />

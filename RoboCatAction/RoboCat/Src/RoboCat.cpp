@@ -14,6 +14,7 @@ RoboCat::RoboCat() :
 	mThrustDir( 0.f ),
 	mPlayerId( 0 ),
 	mIsShooting( false ),
+	emojiIndex(0),
 	mHealth( 10 )
 {
 	SetCollisionRadius( 0.5f );
@@ -33,7 +34,7 @@ void RoboCat::ProcessInput( float inDeltaTime, const InputState& inInputState )
 
 
 	mIsShooting = inInputState.IsShooting(); 
-
+	emojiIndex = inInputState.GetEmojiingIndex();
 }
 
 void RoboCat::AdjustVelocityByThrust( float inDeltaTime )

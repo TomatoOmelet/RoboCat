@@ -16,6 +16,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\EmojiClient.cpp" />
+    <ClCompile Include="Src\MilkClient.cpp" />
     <ClCompile Include="Src\YarnClient.cpp" />
     <ClCompile Include="Src\Client.cpp" />
     <ClCompile Include="Src\ClientMain.cpp" />
@@ -38,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\Client.h" />
+    <ClInclude Include="Inc\EmojiClient.h" />
     <ClInclude Include="Inc\GraphicsDriver.h" />
+    <ClInclude Include="Inc\MilkClient.h" />
     <ClInclude Include="Inc\YarnClient.h" />
     <ClInclude Include="Inc\HUD.h" />
     <ClInclude Include="Inc\NetworkManagerClient.h" />
