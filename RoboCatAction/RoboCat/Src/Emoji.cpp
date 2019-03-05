@@ -79,8 +79,9 @@ bool Emoji::HandleCollisionWithCat( RoboCat* inCat )
 
 void Emoji::InitFromShooter( RoboCat* inShooter )
 {
-	SetPlayerId( inShooter->GetPlayerId() );
-	SetLocation( inShooter->GetLocation() + yDiff);
+	SetLocation(inShooter->GetLocation() + yDiff);
+	SetPlayerId(inShooter->GetPlayerId());
+	SetCat(inShooter);
 }
 
 void Emoji::Update()

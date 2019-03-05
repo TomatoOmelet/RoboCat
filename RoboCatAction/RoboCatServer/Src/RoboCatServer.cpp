@@ -33,8 +33,9 @@ void RoboCatServer::Update()
 
 		moveList.Clear();
 	}
-
+	HandleEmoji();
 	HandleShooting();
+	
 
 	if( !RoboMath::Is2DVectorEqual( oldLocation, GetLocation() ) ||
 		!RoboMath::Is2DVectorEqual( oldVelocity, GetVelocity() ) ||
@@ -56,6 +57,30 @@ void RoboCatServer::HandleShooting()
 		YarnPtr yarn = std::static_pointer_cast< Yarn >( GameObjectRegistry::sInstance->CreateGameObject( 'YARN' ) );
 		yarn->InitFromShooter( this );
 	}
+}
+
+void RoboCatServer::HandleEmoji()
+{
+	float time = Timing::sInstance.GetFrameStartTime();
+	if (mIsShooting && Timing::sInstance.GetFrameStartTime() > mTimeOfNextShot)
+	{
+		//not exact, but okay
+		mTimeOfNextShot = time + mTimeBetweenShots;
+
+		//fire!
+		EmojiPtr emo = std::static_pointer_cast< Emoji >(GameObjectRegistry::sInstance->CreateGameObject('EMOJ'));
+		emo->InitFromShooter(this);
+		SetEmoji(emo);
+	}
+}
+
+void RoboCatServer::SetEmoji(EmojiPtr emo)
+{
+	if (emoji != nullptr)
+	{
+		emoji->SetDoesWantToDie(true);
+	}
+	emoji = emo;
 }
 
 void RoboCatServer::TakeDamage( int inDamagingPlayerId )

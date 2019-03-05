@@ -3,24 +3,24 @@
 
 EmojiServer::EmojiServer()
 {
-
+	mTimeToDie = Timing::sInstance.GetFrameStartTime() + 1.f;
 }
 
 
 void EmojiServer::Update()
 {
 	Emoji::Update();
-
-	//die when cat doesn't exist, otherwise update and following cat
-	try
+	if (Timing::sInstance.GetFrameStartTime() > mTimeToDie)
+	{
+		SetDoesWantToDie(true);
+	}
+	if (!DoesWantToDie())
 	{
 		SetLocation(mCat->GetLocation() + yDiff);
 		NetworkManagerServer::sInstance->SetStateDirty(GetNetworkId(), EERS_Pose);
 	}
-	catch (const std::exception&){
-		SetDoesWantToDie(true);
-	}
 }
+
 
 void EmojiServer::HandleDying()
 {

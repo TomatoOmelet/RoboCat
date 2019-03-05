@@ -28,6 +28,7 @@ public:
 
 	virtual bool HandleCollisionWithCat(RoboCat* inCat) override;
 	
+	virtual void SetCat(RoboCat* cat) { mCat = cat; }
 	Vector3 yDiff = Vector3(0, -1, 0);
 
 protected:
@@ -35,7 +36,7 @@ protected:
 
 	float		mMuzzleSpeed;
 	int			mPlayerId;
-	
+	RoboCat* mCat;
 };
 
 typedef shared_ptr< Emoji >	EmojiPtr;

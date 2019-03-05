@@ -20,13 +20,16 @@ public:
     
     void UpdateSpeed(int value);
 
+	void SetEmoji(EmojiPtr emo);
+
 protected:
 	RoboCatServer();
+	EmojiPtr emoji = nullptr;
 
 private:
 
 	void HandleShooting();
-
+	void HandleEmoji();
 	ECatControlType	mCatControlType;
 
 
