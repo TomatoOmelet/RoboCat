@@ -31,7 +31,7 @@ void RoboCatClient::Update()
 	//we only move when the server tells us to move
     
     // Need a way to store the RobotCat's rotation, speed, and location
-    RoboCat::ProcessInput(<#float inDeltaTime#>, <#const InputState &inInputState#>);
+    
     
     /*
      Send input to server
