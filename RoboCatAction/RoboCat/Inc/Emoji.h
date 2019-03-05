@@ -22,13 +22,14 @@ public:
 	void		SetPlayerId(int inPlayerId) { mPlayerId = inPlayerId; }
 	int			GetPlayerId() const { return mPlayerId; }
 
-	void		InitFromShooter(RoboCat* inShooter);
+	void		InitFromShooter(RoboCat* inShooter, int index);
 
 	virtual void Update() override;
 
 	virtual bool HandleCollisionWithCat(RoboCat* inCat) override;
 	
-	virtual void SetCat(RoboCat* cat) { mCat = cat; }
+	virtual void SetCat(RoboCat* cat) { mCat = cat;}
+	virtual void ChangeTexture(int index) {}
 	Vector3 yDiff = Vector3(0, -1, 0);
 
 protected:

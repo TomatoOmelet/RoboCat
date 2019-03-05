@@ -50,7 +50,7 @@ void RoboCatServer::Update()
 void RoboCatServer::HandleEmoji()
 {
 	float time = Timing::sInstance.GetFrameStartTime();
-	if( mIsEmojiing)
+	if(emojiIndex >= 0)
 	{
 		//not exact, but okay
 		mTimeOfNextEmoji = time + mTimeBetweenEmojis;
@@ -58,7 +58,7 @@ void RoboCatServer::HandleEmoji()
 
 		//Emojis!
 		EmojiPtr emo = std::static_pointer_cast< Emoji >(GameObjectRegistry::sInstance->CreateGameObject('EMOJ'));
-		emo->InitFromShooter(this);
+		emo->InitFromShooter(this, emojiIndex);
 		SetEmoji(emo);
 	}
 }
@@ -96,6 +96,11 @@ void RoboCatServer::TakeDamage( int inDamagingPlayerId )
 
 		//and you want to die
 		SetDoesWantToDie( true );
+		//kill your best friend emoji, that happens sometime
+		if (emoji != nullptr)
+		{
+			emoji->SetDoesWantToDie(true);
+		}
 
 		//tell the client proxy to make you a new cat
 		ClientProxyPtr clientProxy = NetworkManagerServer::sInstance->GetClientProxy( GetPlayerId() );

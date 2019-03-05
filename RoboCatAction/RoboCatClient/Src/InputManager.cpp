@@ -89,6 +89,16 @@ void InputManager::HandleInput( EInputAction inInputAction, int inKeyCode )
 			mCurrentState.mEmojiingIndex = 0;
 			break;
 		}
+	case '2':
+		{
+			mCurrentState.mEmojiingIndex = 1;
+			break;
+		}
+	case '3':
+		{
+			mCurrentState.mEmojiingIndex = 2;
+			break;
+		}
 
 	}
 	

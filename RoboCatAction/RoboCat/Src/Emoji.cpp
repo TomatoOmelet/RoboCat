@@ -77,11 +77,12 @@ bool Emoji::HandleCollisionWithCat( RoboCat* inCat )
 }
 
 
-void Emoji::InitFromShooter( RoboCat* inShooter )
+void Emoji::InitFromShooter( RoboCat* inShooter, int index)
 {
 	SetLocation(inShooter->GetLocation() + yDiff);
 	SetPlayerId(inShooter->GetPlayerId());
 	SetCat(inShooter);
+	ChangeTexture(index);
 }
 
 void Emoji::Update()

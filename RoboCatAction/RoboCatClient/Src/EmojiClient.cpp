@@ -3,9 +3,33 @@
 EmojiClient::EmojiClient()
 {
 	mSpriteComponent.reset( new SpriteComponent( this ) );
-	mSpriteComponent->SetTexture( TextureManager::sInstance->GetTexture( "smile" ) );
+	mSpriteComponent->SetTexture( TextureManager::sInstance->GetTexture( "angry" ) );
 }
 
+void EmojiClient::ChangeTexture(int index)
+{
+	switch (index)
+	{
+	case 0:
+		{
+			mSpriteComponent.reset(new SpriteComponent(this));
+			mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("smile"));
+			break;
+		}
+	case 1:
+		{
+			mSpriteComponent.reset(new SpriteComponent(this));
+			mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("angry"));
+			break;
+		}
+	default:
+		{
+			mSpriteComponent.reset(new SpriteComponent(this));
+			mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("cry"));
+			break;
+		}
+	}
+}
 
 void EmojiClient::Read( InputMemoryBitStream& inInputStream )
 {
