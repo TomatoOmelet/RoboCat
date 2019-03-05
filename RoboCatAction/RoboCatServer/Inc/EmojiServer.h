@@ -7,7 +7,11 @@ public:
 
 	virtual void Update() override;
 
+	void SetCat(RoboCatPtr cat) { mCat = cat; }
+
 protected:
 	EmojiServer();
-
+	RoboCatPtr mCat;
 };
+
+typedef shared_ptr< EmojiServer >	EmojiServerPtr;
