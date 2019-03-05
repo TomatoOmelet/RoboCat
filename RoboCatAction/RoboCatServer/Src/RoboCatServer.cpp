@@ -3,7 +3,9 @@
 RoboCatServer::RoboCatServer() :
 	mCatControlType( ESCT_Human ),
 	mTimeOfNextShot( 0.f ),
-	mTimeBetweenShots( 0.2f )
+	mTimeBetweenShots( 0.2f ),
+	mTimeOfNextEmoji(0.f),
+	mTimeBetweenEmojis(0.1f)
 {}
 
 void RoboCatServer::HandleDying()
@@ -45,21 +47,23 @@ void RoboCatServer::Update()
 	}
 }
 
-void RoboCatServer::HandleShooting()
+void RoboCatServer::HandleEmoji()
 {
 	float time = Timing::sInstance.GetFrameStartTime();
-	if( mIsShooting && Timing::sInstance.GetFrameStartTime() > mTimeOfNextShot )
+	if( mIsEmojiing)
 	{
 		//not exact, but okay
-		mTimeOfNextShot = time + mTimeBetweenShots;
+		mTimeOfNextEmoji = time + mTimeBetweenEmojis;
 
-		//fire!
-		YarnPtr yarn = std::static_pointer_cast< Yarn >( GameObjectRegistry::sInstance->CreateGameObject( 'YARN' ) );
-		yarn->InitFromShooter( this );
+
+		//Emojis!
+		EmojiPtr emo = std::static_pointer_cast< Emoji >(GameObjectRegistry::sInstance->CreateGameObject('EMOJ'));
+		emo->InitFromShooter(this);
+		SetEmoji(emo);
 	}
 }
 
-void RoboCatServer::HandleEmoji()
+void RoboCatServer::HandleShooting()
 {
 	float time = Timing::sInstance.GetFrameStartTime();
 	if (mIsShooting && Timing::sInstance.GetFrameStartTime() > mTimeOfNextShot)
@@ -68,9 +72,8 @@ void RoboCatServer::HandleEmoji()
 		mTimeOfNextShot = time + mTimeBetweenShots;
 
 		//fire!
-		EmojiPtr emo = std::static_pointer_cast< Emoji >(GameObjectRegistry::sInstance->CreateGameObject('EMOJ'));
-		emo->InitFromShooter(this);
-		SetEmoji(emo);
+		YarnPtr yarn = std::static_pointer_cast< Yarn >(GameObjectRegistry::sInstance->CreateGameObject('YARN'));
+		yarn->InitFromShooter(this);
 	}
 }
 

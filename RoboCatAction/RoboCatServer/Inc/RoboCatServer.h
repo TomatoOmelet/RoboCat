@@ -36,4 +36,7 @@ private:
 	float		mTimeOfNextShot;
 	float		mTimeBetweenShots;
 
+	//just in case the get input here is not GetButton(), add some interval
+	float		mTimeOfNextEmoji;
+	float		mTimeBetweenEmojis;
 };

@@ -42,6 +42,8 @@ namespace
 
 void InputManager::HandleInput( EInputAction inInputAction, int inKeyCode )
 {
+	//by default doesn't have emo
+	mCurrentState.mEmojiingIndex = -1;
 	switch( inKeyCode )
 	{
 	case 'a':
@@ -82,8 +84,14 @@ void InputManager::HandleInput( EInputAction inInputAction, int inKeyCode )
 			NetworkManagerClient::sInstance->SetSimulatedLatency( latency );
 			break;
 		}
-	}
+	case '1':
+		{
+			mCurrentState.mEmojiingIndex = 0;
+			break;
+		}
 
+	}
+	
 }
 
 
