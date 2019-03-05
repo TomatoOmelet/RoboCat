@@ -80,6 +80,10 @@
 		E726A5942228827D0044FC36 /* Milk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E726A5922228827D0044FC36 /* Milk.cpp */; };
 		E726A5972228836B0044FC36 /* MilkServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E726A5962228836B0044FC36 /* MilkServer.cpp */; };
 		E726A5992228846B0044FC36 /* MilkClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E726A5982228846B0044FC36 /* MilkClient.cpp */; };
+		E7BF2770222E2815008E8235 /* Emoji.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7BF276F222E2815008E8235 /* Emoji.cpp */; };
+		E7BF2771222E2815008E8235 /* Emoji.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7BF276F222E2815008E8235 /* Emoji.cpp */; };
+		E7BF2774222E2859008E8235 /* EmojiServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7BF2773222E2859008E8235 /* EmojiServer.cpp */; };
+		E7BF277A222E2883008E8235 /* EmojiClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7BF2779222E2883008E8235 /* EmojiClient.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -208,6 +212,12 @@
 		E726A5962228836B0044FC36 /* MilkServer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MilkServer.cpp; sourceTree = "<group>"; };
 		E726A5982228846B0044FC36 /* MilkClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MilkClient.cpp; sourceTree = "<group>"; };
 		E726A59A2228847C0044FC36 /* MilkClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MilkClient.h; sourceTree = "<group>"; };
+		E7BF276F222E2815008E8235 /* Emoji.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Emoji.cpp; path = RoboCat/Src/Emoji.cpp; sourceTree = SOURCE_ROOT; };
+		E7BF2772222E281F008E8235 /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Emoji.h; path = RoboCat/Inc/Emoji.h; sourceTree = SOURCE_ROOT; };
+		E7BF2773222E2859008E8235 /* EmojiServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EmojiServer.cpp; sourceTree = "<group>"; };
+		E7BF2775222E2864008E8235 /* EmojiServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiServer.h; sourceTree = "<group>"; };
+		E7BF2778222E2879008E8235 /* EmojiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiClient.h; sourceTree = "<group>"; };
+		E7BF2779222E2883008E8235 /* EmojiClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EmojiClient.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +250,7 @@
 		033B27101C065871005672A2 /* Inc */ = {
 			isa = PBXGroup;
 			children = (
+				E7BF2778222E2879008E8235 /* EmojiClient.h */,
 				033B27111C065871005672A2 /* Client.h */,
 				033B27121C065871005672A2 /* GraphicsDriver.h */,
 				033B27131C065871005672A2 /* HUD.h */,
@@ -263,6 +274,7 @@
 		033B27221C065871005672A2 /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				E7BF2779222E2883008E8235 /* EmojiClient.cpp */,
 				033B27231C065871005672A2 /* Client.cpp */,
 				033B27241C065871005672A2 /* ClientMain.cpp */,
 				033B27251C065871005672A2 /* GraphicsDriver.cpp */,
@@ -296,6 +308,7 @@
 		035E462B1C0651FB00CCB512 /* Inc */ = {
 			isa = PBXGroup;
 			children = (
+				E7BF2775222E2864008E8235 /* EmojiServer.h */,
 				035E462C1C0651FB00CCB512 /* ClientProxy.h */,
 				035E462D1C0651FB00CCB512 /* MouseServer.h */,
 				035E462E1C0651FB00CCB512 /* NetworkManagerServer.h */,
@@ -312,6 +325,7 @@
 		035E46361C0651FB00CCB512 /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				E7BF2773222E2859008E8235 /* EmojiServer.cpp */,
 				035E46371C0651FB00CCB512 /* ClientProxy.cpp */,
 				035E46381C0651FB00CCB512 /* MouseServer.cpp */,
 				035E46391C0651FB00CCB512 /* NetworkManagerServer.cpp */,
@@ -358,6 +372,7 @@
 		923CDDD21BFFE22800802F90 /* Inc */ = {
 			isa = PBXGroup;
 			children = (
+				E7BF2772222E281F008E8235 /* Emoji.h */,
 				035E45E31C064F3000CCB512 /* Engine.h */,
 				035E45E41C064F3000CCB512 /* GameObject.h */,
 				035E45E51C064F3000CCB512 /* GameObjectRegistry.h */,
@@ -392,6 +407,7 @@
 		923CDDD31BFFE22F00802F90 /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				E7BF276F222E2815008E8235 /* Emoji.cpp */,
 				035E45FD1C064F3E00CCB512 /* Engine.cpp */,
 				035E45FE1C064F3E00CCB512 /* GameObject.cpp */,
 				035E45FF1C064F3E00CCB512 /* GameObjectRegistry.cpp */,
@@ -527,12 +543,14 @@
 				033B26EB1C065833005672A2 /* MoveList.cpp in Sources */,
 				033B26ED1C065833005672A2 /* SocketAddressFactory.cpp in Sources */,
 				033B26EE1C065833005672A2 /* NetworkManager.cpp in Sources */,
+				E7BF2771222E2815008E8235 /* Emoji.cpp in Sources */,
 				033B273B1C065871005672A2 /* ReplicationManagerClient.cpp in Sources */,
 				033B26EF1C065833005672A2 /* InputState.cpp in Sources */,
 				033B26F01C065833005672A2 /* TCPSocket.cpp in Sources */,
 				033B26F11C065833005672A2 /* StringUtils.cpp in Sources */,
 				033B26F21C065833005672A2 /* RoboCatPCH.cpp in Sources */,
 				033B26F31C065833005672A2 /* World.cpp in Sources */,
+				E7BF277A222E2883008E8235 /* EmojiClient.cpp in Sources */,
 				033B26F41C065833005672A2 /* Timing.cpp in Sources */,
 				033B273C1C065871005672A2 /* RoboCatClient.cpp in Sources */,
 				033B27421C065871005672A2 /* YarnClient.cpp in Sources */,
@@ -582,6 +600,7 @@
 				035E46241C064F3E00CCB512 /* TCPSocket.cpp in Sources */,
 				035E46231C064F3E00CCB512 /* StringUtils.cpp in Sources */,
 				035E461D1C064F3E00CCB512 /* RoboCatPCH.cpp in Sources */,
+				E7BF2770222E2815008E8235 /* Emoji.cpp in Sources */,
 				035E46271C064F3E00CCB512 /* World.cpp in Sources */,
 				035E46251C064F3E00CCB512 /* Timing.cpp in Sources */,
 				035E461F1C064F3E00CCB512 /* ScoreBoardManager.cpp in Sources */,
@@ -595,6 +614,7 @@
 				035E46171C064F3E00CCB512 /* MemoryBitStream.cpp in Sources */,
 				035E46141C064F3E00CCB512 /* GameObject.cpp in Sources */,
 				035E46461C0651FB00CCB512 /* Server.cpp in Sources */,
+				E7BF2774222E2859008E8235 /* EmojiServer.cpp in Sources */,
 				035E461C1C064F3E00CCB512 /* RoboCat.cpp in Sources */,
 				035E46181C064F3E00CCB512 /* Mouse.cpp in Sources */,
 				035E46151C064F3E00CCB512 /* GameObjectRegistry.cpp in Sources */,

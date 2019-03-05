@@ -3,7 +3,7 @@
 EmojiClient::EmojiClient()
 {
 	mSpriteComponent.reset( new SpriteComponent( this ) );
-	mSpriteComponent->SetTexture( TextureManager::sInstance->GetTexture( "yarn" ) );
+	mSpriteComponent->SetTexture( TextureManager::sInstance->GetTexture( "smile" ) );
 }
 
 
