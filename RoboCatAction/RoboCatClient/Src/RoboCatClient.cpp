@@ -3,16 +3,10 @@
 
 using namespace std;
 
-struct movementStates {
-    Vector3 location;
-    Vector3 velocity;
-    float rotation;
-    float time;
-};
 
 MoveList& inputs = InputManager::sInstance->GetMoveList();  // Stores the inputs from the user and sends them out to the
                                                             // server
-vector<movementStates> movements;   //  Stores the player's cat's attributes at time t
+vector<GameObject::movementStates> movements;   //  Stores the player's cat's attributes at time t
 
 RoboCatClient::RoboCatClient() :
 	mTimeLocationBecameOutOfSync( 0.f ),
@@ -32,7 +26,6 @@ void RoboCatClient::HandleDying()
 		HUD::sInstance->SetPlayerHealth( 0 );
 	}
 }
-
 
 void RoboCatClient::Update()
 {

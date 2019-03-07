@@ -54,6 +54,14 @@ public:
 
 	virtual uint32_t	Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState ) const	{  ( void ) inOutputStream; ( void ) inDirtyState; return 0; }
 	virtual void		Read( InputMemoryBitStream& inInputStream )									{ ( void ) inInputStream; }
+    
+    struct movementStates {
+        Vector3 location;
+        Vector3 velocity;
+        float rotation;
+        float time;
+    };
+
 
 private:
 
