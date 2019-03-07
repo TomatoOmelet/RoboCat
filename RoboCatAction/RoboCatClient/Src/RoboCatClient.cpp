@@ -3,7 +3,16 @@
 
 using namespace std;
 
-//vector<InputState> states;
+struct movementStates {
+    Vector3 location;
+    Vector3 velocity;
+    float rotation;
+    float time;
+};
+
+MoveList& inputs = InputManager::sInstance->GetMoveList();  // Stores the inputs from the user and sends them out to the
+                                                            // server
+vector<movementStates> movements;   //  Stores the player's cat's attributes at time t
 
 RoboCatClient::RoboCatClient() :
 	mTimeLocationBecameOutOfSync( 0.f ),
@@ -30,18 +39,7 @@ void RoboCatClient::Update()
 	//for now, we don't simulate any movement on the client side
 	//we only move when the server tells us to move
     
-    // Need a way to store the RobotCat's rotation, speed, and location
     
-    
-    /*
-     Send input to server
-     Get info on location, speed, and rotation from server
-     if(data != server) {
-        reset location, speed, and rotation to server
-        reset state history to the update version from server
-     }
-     
-     */
     
 }
 
