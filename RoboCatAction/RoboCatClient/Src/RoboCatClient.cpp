@@ -1,5 +1,7 @@
 #include <RoboCatClientPCH.h>
 #include <vector>
+#include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -31,7 +33,7 @@ void RoboCatClient::Update()
 {
 	//for now, we don't simulate any movement on the client side
 	//we only move when the server tells us to move
-    
+    std::cout << Timing::sInstance.GetDeltaTime() << std::endl;
     
     
 }

@@ -1,4 +1,6 @@
 #include <RoboCatServerPCH.h>
+#include <iostream>
+#include <cstdlib>
 
 RoboCatServer::RoboCatServer() :
 	mCatControlType( ESCT_Human ),
@@ -29,6 +31,7 @@ void RoboCatServer::Update()
 		{
 			const InputState& currentState = unprocessedMove.GetInputState();
 			float deltaTime = unprocessedMove.GetDeltaTime();
+            std::cout << (deltaTime) << std::endl;
 			ProcessInput( deltaTime, currentState );
 			SimulateMovement( deltaTime );
 		}
@@ -46,6 +49,10 @@ void RoboCatServer::Update()
 		NetworkManagerServer::sInstance->SetStateDirty( GetNetworkId(), ECRS_Pose );
 	}
 }
+
+//GameObject::movementStates RoboCat::GetPredictedStates() {
+//    float deltaTime
+//}
 
 void RoboCatServer::HandleEmoji()
 {
