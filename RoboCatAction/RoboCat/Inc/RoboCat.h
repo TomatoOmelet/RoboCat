@@ -34,13 +34,18 @@ public:
 	void			SetVelocity( const Vector3& inVelocity )	{ mVelocity = inVelocity; }
 	const Vector3&	GetVelocity()						const	{ return mVelocity; }
 
+	//setter method for robocat
+	void			SetPlayerName(string name)					{ mPlayerName = name; }
+	//getter method for robocat
+	string			GetPlayerName()								{ return mPlayerName; }
+
 	virtual uint32_t	Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState ) const override;
 
 protected:
 	RoboCat();
 
 private:
-
+	string				mPlayerName;
 
 	void	AdjustVelocityByThrust( float inDeltaTime );
 
