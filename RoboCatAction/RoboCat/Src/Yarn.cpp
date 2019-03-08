@@ -1,4 +1,7 @@
 #include <RoboCatPCH.h>
+//#include <..\RoboCatAction\RoboCatClient\Inc\NetworkManagerClient.h>
+#include <string.h>
+#include <cstdio>
 
 Yarn::Yarn() :
 	mMuzzleSpeed( 3.f ),
@@ -72,10 +75,20 @@ uint32_t Yarn::Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtySta
 
 bool Yarn::HandleCollisionWithCat( RoboCat* inCat )
 {
+	/*
+	string thisShooterName = mShooterName;
+	string targetName = inCat->GetPlayerName();
+	LOG("'%s' '%s'", thisShooterName, targetName);
+	*/
+	/*
+	char buffer[256];
+	snprintf(buffer, 256, "%s %i", thisShooterName, targetName);
+	string formattedKillFeed = string(buffer);
+	*/
+
 	( void ) inCat;
 
 	//you hit a cat, so look like you hit a cat
-	
 
 
 	return false;
@@ -92,6 +105,8 @@ void Yarn::InitFromShooter( RoboCat* inShooter )
 	SetLocation( inShooter->GetLocation() /* + forward * 0.55f */ );
 
 	SetRotation( inShooter->GetRotation() );
+
+	mShooterName = inShooter->GetPlayerName();
 }
 
 void Yarn::Update()
