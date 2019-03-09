@@ -93,6 +93,9 @@ void RoboCatServer::TakeDamage( int inDamagingPlayerId )
 		//score one for damaging player...
 		ScoreBoardManager::sInstance->IncScore( inDamagingPlayerId, 1 );
 
+        ScoreBoardManager::sInstance->IncKills( inDamagingPlayerId, 1);
+        ScoreBoardManager::sInstance->IncDeaths(GetPlayerId(), 1);
+        
 		//and you want to die
 		SetDoesWantToDie( true );
 		//kill your best friend emoji, that happens sometime
@@ -101,12 +104,20 @@ void RoboCatServer::TakeDamage( int inDamagingPlayerId )
 			emoji->SetDoesWantToDie(true);
 		}
 
+		//name of the shooter and target to display on death
+		string shooterName = ScoreBoardManager::sInstance->GetEntry(inDamagingPlayerId)->GetPlayerName();
+		string targetName = GetPlayerName();
+		//sprintf(debugBuffer, "%s . %s \n", shooterName, targetName);
+		
+
 		//tell the client proxy to make you a new cat
 		ClientProxyPtr clientProxy = NetworkManagerServer::sInstance->GetClientProxy( GetPlayerId() );
 		if( clientProxy )
 		{
 			clientProxy->HandleCatDied();
 		}
+
+
 	}
 
 	//tell the world our health dropped
