@@ -93,6 +93,9 @@ void RoboCatServer::TakeDamage( int inDamagingPlayerId )
 		//score one for damaging player...
 		ScoreBoardManager::sInstance->IncScore( inDamagingPlayerId, 1 );
 
+        ScoreBoardManager::sInstance->IncKills( inDamagingPlayerId, 1);
+        ScoreBoardManager::sInstance->IncDeaths(GetPlayerId(), 1);
+        
 		//and you want to die
 		SetDoesWantToDie( true );
 		//kill your best friend emoji, that happens sometime
