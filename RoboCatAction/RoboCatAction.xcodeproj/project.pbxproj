@@ -84,6 +84,8 @@
 		E7BF2771222E2815008E8235 /* Emoji.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7BF276F222E2815008E8235 /* Emoji.cpp */; };
 		E7BF2774222E2859008E8235 /* EmojiServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7BF2773222E2859008E8235 /* EmojiServer.cpp */; };
 		E7BF277A222E2883008E8235 /* EmojiClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7BF2779222E2883008E8235 /* EmojiClient.cpp */; };
+		E7FE8014223335A600FD7351 /* DeathLogManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7FE8013223335A600FD7351 /* DeathLogManager.cpp */; };
+		E7FE8015223335A600FD7351 /* DeathLogManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7FE8013223335A600FD7351 /* DeathLogManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -218,6 +220,8 @@
 		E7BF2775222E2864008E8235 /* EmojiServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiServer.h; sourceTree = "<group>"; };
 		E7BF2778222E2879008E8235 /* EmojiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiClient.h; sourceTree = "<group>"; };
 		E7BF2779222E2883008E8235 /* EmojiClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EmojiClient.cpp; sourceTree = "<group>"; };
+		E7FE80122233358B00FD7351 /* DeathLogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeathLogManager.h; path = RoboCat/Inc/DeathLogManager.h; sourceTree = SOURCE_ROOT; };
+		E7FE8013223335A600FD7351 /* DeathLogManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DeathLogManager.cpp; path = RoboCat/Src/DeathLogManager.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +404,7 @@
 				035E45FB1C064F3000CCB512 /* World.h */,
 				035E45FC1C064F3000CCB512 /* Yarn.h */,
 				E726A591222881FA0044FC36 /* Milk.h */,
+				E7FE80122233358B00FD7351 /* DeathLogManager.h */,
 			);
 			path = Inc;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 				035E46111C064F3E00CCB512 /* World.cpp */,
 				035E46121C064F3E00CCB512 /* Yarn.cpp */,
 				E726A5922228827D0044FC36 /* Milk.cpp */,
+				E7FE8013223335A600FD7351 /* DeathLogManager.cpp */,
 			);
 			path = Src;
 			sourceTree = "<group>";
@@ -568,6 +574,7 @@
 				033B26FE1C065833005672A2 /* GameObject.cpp in Sources */,
 				033B27001C065833005672A2 /* RoboCat.cpp in Sources */,
 				033B27401C065871005672A2 /* TextureManager.cpp in Sources */,
+				E7FE8015223335A600FD7351 /* DeathLogManager.cpp in Sources */,
 				033B273E1C065871005672A2 /* SpriteComponent.cpp in Sources */,
 				033B27011C065833005672A2 /* Mouse.cpp in Sources */,
 				033B27341C065871005672A2 /* ClientMain.cpp in Sources */,
@@ -615,6 +622,7 @@
 				035E46141C064F3E00CCB512 /* GameObject.cpp in Sources */,
 				035E46461C0651FB00CCB512 /* Server.cpp in Sources */,
 				E7BF2774222E2859008E8235 /* EmojiServer.cpp in Sources */,
+				E7FE8014223335A600FD7351 /* DeathLogManager.cpp in Sources */,
 				035E461C1C064F3E00CCB512 /* RoboCat.cpp in Sources */,
 				035E46181C064F3E00CCB512 /* Mouse.cpp in Sources */,
 				035E46151C064F3E00CCB512 /* GameObjectRegistry.cpp in Sources */,

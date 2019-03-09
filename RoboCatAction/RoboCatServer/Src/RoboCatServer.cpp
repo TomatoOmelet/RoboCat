@@ -104,6 +104,10 @@ void RoboCatServer::TakeDamage( int inDamagingPlayerId )
 		//name of the shooter and target to display on death
 		string shooterName = ScoreBoardManager::sInstance->GetEntry(inDamagingPlayerId)->GetPlayerName();
 		string targetName = GetPlayerName();
+        printf("%s shot %s", shooterName.c_str(), targetName.c_str());
+        string deathLog = shooterName + " has slain " + targetName;
+        
+        DeathLogManager::sInstance->AddEntry(deathLog);
 		//sprintf(debugBuffer, "%s . %s \n", shooterName, targetName);
 		
 

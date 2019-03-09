@@ -30,6 +30,7 @@ private:
 			void	UpdateAllClients();
 			
 			void	AddWorldStateToPacket( OutputMemoryBitStream& inOutputStream );
+            void    AddDeathLogStateToPacket( OutputMemoryBitStream& inOutputStream );
 			void	AddScoreBoardStateToPacket( OutputMemoryBitStream& inOutputStream );
 
 			void	SendStatePacketToClient( ClientProxyPtr inClientProxy );
