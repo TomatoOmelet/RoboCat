@@ -10,15 +10,17 @@ public:
 	public:
 		Entry() {};
 
-		Entry( uint32_t inPlayerID, const string& inPlayerName, const Vector3& inColor );
+		Entry( uint32_t inPlayerID, const string& inPlayerName, const Vector3& inColor);
 
 		const Vector3&	GetColor()		const	{ return mColor; }
 		uint32_t		GetPlayerId()	const	{ return mPlayerId; }
 		const string&	GetPlayerName()	const	{ return mPlayerName; }
+        int             GetPlayerKills()        { return mKills; }
+        int             GetPlayerDeaths()       { return mDeaths; }
 		const string&	GetFormattedNameScore()	const	{ return mFormattedNameScore; }
 		int				GetScore()		const	{ return mScore; }
 
-		void			SetScore( int inScore );
+		void			SetStats( int inScore, int inKills, int inDeaths );
 
 		bool			Write( OutputMemoryBitStream& inOutputStream ) const;
 		bool			Read( InputMemoryBitStream& inInputStream );
@@ -30,6 +32,8 @@ public:
 		string			mPlayerName;
 		
 		int				mScore;
+        int             mKills;
+        int             mDeaths;
 
 		string			mFormattedNameScore;
 	};
@@ -37,7 +41,10 @@ public:
 	Entry*	GetEntry( uint32_t inPlayerId );
 	bool	RemoveEntry( uint32_t inPlayerId );
 	void	AddEntry( uint32_t inPlayerId, const string& inPlayerName );
+    
 	void	IncScore( uint32_t inPlayerId, int inAmount );
+    void    IncKills( uint32_t inPlayerId, int inAmount );
+    void    IncDeaths( uint32_t inPlayerId, int inAmount );
 
 	bool	Write( OutputMemoryBitStream& inOutputStream ) const;
 	bool	Read( InputMemoryBitStream& inInputStream );

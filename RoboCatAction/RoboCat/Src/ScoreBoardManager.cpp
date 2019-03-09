@@ -21,19 +21,20 @@ mPlayerId( inPlayerId ),
 mPlayerName( inPlayerName ),
 mColor( inColor )
 {
-	SetScore( 0 );
+	SetStats( 0, 0, 0 );
 }
 
-void ScoreBoardManager::Entry::SetScore( int32_t inScore )
+void ScoreBoardManager::Entry::SetStats( int32_t inScore, int32_t inKills, int32_t inDeaths )
 {
 	mScore = inScore;
+    mKills = inKills;
+    mDeaths = inDeaths;
 
 	char	buffer[ 256 ];
-	snprintf( buffer, 256, "%s %i", mPlayerName.c_str(), mScore );
+	snprintf( buffer, 256, "%s %i/%i -- %i", mPlayerName.c_str(), mKills, mDeaths, mScore );
 	mFormattedNameScore = string( buffer );
 
 }
-
 
 ScoreBoardManager::Entry* ScoreBoardManager::GetEntry( uint32_t inPlayerId )
 {
@@ -75,10 +76,27 @@ void ScoreBoardManager::IncScore( uint32_t inPlayerId, int inAmount )
 	Entry* entry = GetEntry( inPlayerId );
 	if( entry )
 	{
-		entry->SetScore( entry->GetScore() + inAmount );
+		entry->SetStats( entry->GetScore() + inAmount, entry->GetPlayerKills(), entry->GetPlayerDeaths() );
 	}
 }
 
+void ScoreBoardManager::IncKills( uint32_t inPlayerId, int inAmount )
+{
+    Entry* entry = GetEntry( inPlayerId );
+    if( entry )
+    {
+        entry->SetStats(entry->GetScore(), entry->GetPlayerKills() + inAmount, entry->GetPlayerDeaths() );
+    }
+}
+
+void ScoreBoardManager::IncDeaths( uint32_t inPlayerId, int inAmount )
+{
+    Entry* entry = GetEntry( inPlayerId );
+    if( entry )
+    {
+        entry->SetStats(entry->GetScore(), entry->GetPlayerKills(), entry->GetPlayerDeaths() + inAmount );
+    }
+}
 
 
 bool ScoreBoardManager::Write( OutputMemoryBitStream& inOutputStream ) const
@@ -121,6 +139,8 @@ bool ScoreBoardManager::Entry::Write( OutputMemoryBitStream& inOutputStream ) co
 	inOutputStream.Write( mPlayerId );
 	inOutputStream.Write( mPlayerName );
 	inOutputStream.Write( mScore );
+    inOutputStream.Write( mKills );
+    inOutputStream.Write( mDeaths );
 
 	return didSucceed;
 }
@@ -138,8 +158,22 @@ bool ScoreBoardManager::Entry::Read( InputMemoryBitStream& inInputStream )
 	inInputStream.Read( score );
 	if( didSucceed )
 	{
-		SetScore( score );
+		SetStats( score,  GetPlayerKills(), GetPlayerDeaths());
 	}
+    
+    int kill;
+    inInputStream.Read( kill );
+    if( didSucceed )
+    {
+        SetStats( GetScore(), kill, GetPlayerDeaths());
+    }
+    
+    int death;
+    inInputStream.Read( death );
+    if( didSucceed )
+    {
+        SetStats( GetScore(),  GetPlayerKills(), death);
+    }
 
 
 	return didSucceed;
