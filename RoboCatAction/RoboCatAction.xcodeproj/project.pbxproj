@@ -80,6 +80,10 @@
 		E726A5942228827D0044FC36 /* Milk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E726A5922228827D0044FC36 /* Milk.cpp */; };
 		E726A5972228836B0044FC36 /* MilkServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E726A5962228836B0044FC36 /* MilkServer.cpp */; };
 		E726A5992228846B0044FC36 /* MilkClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E726A5982228846B0044FC36 /* MilkClient.cpp */; };
+		E78F4BF9223591AD005C495E /* DeathLogManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E78F4BF8223591AD005C495E /* DeathLogManager.cpp */; };
+		E78F4BFA223591AD005C495E /* DeathLogManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E78F4BF8223591AD005C495E /* DeathLogManager.cpp */; };
+		E7FE8014223335A600FD7351 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		E7FE8015223335A600FD7351 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		E7FE80182233548200FD7351 /* Emoji.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7FE80172233548200FD7351 /* Emoji.cpp */; };
 		E7FE80192233548200FD7351 /* Emoji.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7FE80172233548200FD7351 /* Emoji.cpp */; };
 		E7FE801B2233549800FD7351 /* EmojiServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7FE801A2233549800FD7351 /* EmojiServer.cpp */; };
@@ -212,6 +216,8 @@
 		E726A5962228836B0044FC36 /* MilkServer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MilkServer.cpp; sourceTree = "<group>"; };
 		E726A5982228846B0044FC36 /* MilkClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MilkClient.cpp; sourceTree = "<group>"; };
 		E726A59A2228847C0044FC36 /* MilkClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MilkClient.h; sourceTree = "<group>"; };
+		E78F4BF7223591A2005C495E /* DeathLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeathLogManager.h; path = RoboCat/Inc/DeathLogManager.h; sourceTree = SOURCE_ROOT; };
+		E78F4BF8223591AD005C495E /* DeathLogManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DeathLogManager.cpp; path = RoboCat/Src/DeathLogManager.cpp; sourceTree = SOURCE_ROOT; };
 		E7FE80162233547A00FD7351 /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Emoji.h; path = RoboCat/Inc/Emoji.h; sourceTree = SOURCE_ROOT; };
 		E7FE80172233548200FD7351 /* Emoji.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Emoji.cpp; path = RoboCat/Src/Emoji.cpp; sourceTree = SOURCE_ROOT; };
 		E7FE801A2233549800FD7351 /* EmojiServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EmojiServer.cpp; sourceTree = "<group>"; };
@@ -372,6 +378,7 @@
 		923CDDD21BFFE22800802F90 /* Inc */ = {
 			isa = PBXGroup;
 			children = (
+				E78F4BF7223591A2005C495E /* DeathLogManager.h */,
 				E7FE80162233547A00FD7351 /* Emoji.h */,
 				035E45E31C064F3000CCB512 /* Engine.h */,
 				035E45E41C064F3000CCB512 /* GameObject.h */,
@@ -407,12 +414,14 @@
 		923CDDD31BFFE22F00802F90 /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				E78F4BF8223591AD005C495E /* DeathLogManager.cpp */,
 				E7FE80172233548200FD7351 /* Emoji.cpp */,
 				035E45FD1C064F3E00CCB512 /* Engine.cpp */,
 				035E45FE1C064F3E00CCB512 /* GameObject.cpp */,
 				035E45FF1C064F3E00CCB512 /* GameObjectRegistry.cpp */,
 				035E46001C064F3E00CCB512 /* InputState.cpp */,
 				035E46011C064F3E00CCB512 /* MemoryBitStream.cpp */,
+				035E46091C064F3E00CCB512 /* ScoreBoardManager.cpp */,
 				035E46021C064F3E00CCB512 /* Mouse.cpp */,
 				035E46031C064F3E00CCB512 /* Move.cpp */,
 				035E46041C064F3E00CCB512 /* MoveList.cpp */,
@@ -420,7 +429,6 @@
 				035E46061C064F3E00CCB512 /* RoboCat.cpp */,
 				035E46071C064F3E00CCB512 /* RoboCatPCH.cpp */,
 				035E46081C064F3E00CCB512 /* RoboMath.cpp */,
-				035E46091C064F3E00CCB512 /* ScoreBoardManager.cpp */,
 				035E460A1C064F3E00CCB512 /* SocketAddress.cpp */,
 				035E460B1C064F3E00CCB512 /* SocketAddressFactory.cpp */,
 				035E460C1C064F3E00CCB512 /* SocketUtil.cpp */,
@@ -566,8 +574,10 @@
 				033B26FC1C065833005672A2 /* RoboMath.cpp in Sources */,
 				033B26FD1C065833005672A2 /* MemoryBitStream.cpp in Sources */,
 				033B26FE1C065833005672A2 /* GameObject.cpp in Sources */,
+				E78F4BFA223591AD005C495E /* DeathLogManager.cpp in Sources */,
 				033B27001C065833005672A2 /* RoboCat.cpp in Sources */,
 				033B27401C065871005672A2 /* TextureManager.cpp in Sources */,
+				E7FE8015223335A600FD7351 /* (null) in Sources */,
 				033B273E1C065871005672A2 /* SpriteComponent.cpp in Sources */,
 				033B27011C065833005672A2 /* Mouse.cpp in Sources */,
 				033B27341C065871005672A2 /* ClientMain.cpp in Sources */,
@@ -589,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E726A5972228836B0044FC36 /* MilkServer.cpp in Sources */,
+				E78F4BF9223591AD005C495E /* DeathLogManager.cpp in Sources */,
 				035E46411C0651FB00CCB512 /* MouseServer.cpp in Sources */,
 				035E46261C064F3E00CCB512 /* UDPSocket.cpp in Sources */,
 				035E461A1C064F3E00CCB512 /* MoveList.cpp in Sources */,
@@ -614,6 +625,7 @@
 				035E46171C064F3E00CCB512 /* MemoryBitStream.cpp in Sources */,
 				035E46141C064F3E00CCB512 /* GameObject.cpp in Sources */,
 				035E46461C0651FB00CCB512 /* Server.cpp in Sources */,
+				E7FE8014223335A600FD7351 /* (null) in Sources */,
 				E7FE801B2233549800FD7351 /* EmojiServer.cpp in Sources */,
 				035E461C1C064F3E00CCB512 /* RoboCat.cpp in Sources */,
 				035E46181C064F3E00CCB512 /* Mouse.cpp in Sources */,
