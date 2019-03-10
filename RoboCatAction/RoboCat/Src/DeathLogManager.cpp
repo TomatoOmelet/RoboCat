@@ -17,7 +17,8 @@ void DeathLogManager::StaticInit()
 
 DeathLogManager::DeathLogManager()
 {
-
+    string s = "Death Log Manager";
+    mEntries.push_front(s);
 }
 
 string DeathLogManager::GetEntry( )
@@ -37,7 +38,7 @@ bool DeathLogManager::RemoveEntry( )
     {
         string s = mEntries.front();
         mEntries.pop_front();
-        printf("\n%s has been removed from deathlog\n", s.c_str());
+        //printf("\n%s has been removed from deathlog\n", s.c_str());
         return true;
     }
     
@@ -46,17 +47,14 @@ bool DeathLogManager::RemoveEntry( )
 
 void DeathLogManager::AddEntry( string deathLog )
 {
-    //if this player id exists already, remove it first- it would be crazy to have two of the same id
     RemoveEntry( );
     
     mEntries.push_back( deathLog );
-    printf("%s added to the stack\n", deathLog.c_str());
+    //printf("%s added to the stack\n", deathLog.c_str());
 }
 
 bool DeathLogManager::Write( OutputMemoryBitStream& inOutputStream ) const
 {
-    //we don't know our player names, so it's hard to check for remaining space in the packet...
-    //not really a concern now though
     if(!mEntries.empty()) {
         string log = mEntries.front();
         
@@ -70,10 +68,14 @@ bool DeathLogManager::Write( OutputMemoryBitStream& inOutputStream ) const
 
 bool DeathLogManager::Read( InputMemoryBitStream& inInputStream )
 {
+    bool didSucceed = true;
     if(!mEntries.empty()) {
-        string log = mEntries.front();
+        string log;
         
         inInputStream.Read( log );
+        if (didSucceed) {
+            AddEntry(log);
+        }
     }
     //just replace everything that's here, it don't matter...
     

@@ -78,8 +78,10 @@ void HUD::RenderDeathLog() {
     const deque< string >& logs = DeathLogManager::sInstance->GetEntries();
     Vector3 offset = mDeathLogOrigin;
     
-    if(!logs.empty())
+    if(!logs.empty()) {
         RenderText(logs.front(), offset, Colors::Black);
+    }
+    
 }
 
 void HUD::RenderText( const string& inStr, const Vector3& origin, const Vector3& inColor )

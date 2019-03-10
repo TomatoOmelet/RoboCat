@@ -418,6 +418,8 @@
 				035E45FF1C064F3E00CCB512 /* GameObjectRegistry.cpp */,
 				035E46001C064F3E00CCB512 /* InputState.cpp */,
 				035E46011C064F3E00CCB512 /* MemoryBitStream.cpp */,
+				E7FE8013223335A600FD7351 /* DeathLogManager.cpp */,
+				035E46091C064F3E00CCB512 /* ScoreBoardManager.cpp */,
 				035E46021C064F3E00CCB512 /* Mouse.cpp */,
 				035E46031C064F3E00CCB512 /* Move.cpp */,
 				035E46041C064F3E00CCB512 /* MoveList.cpp */,
@@ -425,7 +427,6 @@
 				035E46061C064F3E00CCB512 /* RoboCat.cpp */,
 				035E46071C064F3E00CCB512 /* RoboCatPCH.cpp */,
 				035E46081C064F3E00CCB512 /* RoboMath.cpp */,
-				035E46091C064F3E00CCB512 /* ScoreBoardManager.cpp */,
 				035E460A1C064F3E00CCB512 /* SocketAddress.cpp */,
 				035E460B1C064F3E00CCB512 /* SocketAddressFactory.cpp */,
 				035E460C1C064F3E00CCB512 /* SocketUtil.cpp */,
@@ -436,7 +437,6 @@
 				035E46111C064F3E00CCB512 /* World.cpp */,
 				035E46121C064F3E00CCB512 /* Yarn.cpp */,
 				E726A5922228827D0044FC36 /* Milk.cpp */,
-				E7FE8013223335A600FD7351 /* DeathLogManager.cpp */,
 			);
 			path = Src;
 			sourceTree = "<group>";
