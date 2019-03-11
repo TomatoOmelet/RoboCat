@@ -36,6 +36,8 @@ private:
 
 			void	HandleGameObjectState( InputMemoryBitStream& inInputStream );
 			void	HandleScoreBoardState( InputMemoryBitStream& inInputStream );
+    
+            void    HandleDeathLogState( InputMemoryBitStream& inInputStream );
 
 			void	UpdateSendingInputPacket();
 			void	SendInputPacket();
