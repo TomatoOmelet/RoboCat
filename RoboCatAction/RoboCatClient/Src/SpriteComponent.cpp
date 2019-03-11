@@ -59,8 +59,8 @@ void SpriteComponent::DrawTheFuture(const SDL_Rect& inViewTransform, float perce
 		// Compute the destination rectangle
 		Vector3 objLocation = mGameObject->GetLocation();
 		float objScale = mGameObject->GetScale();
-		//float deltaTime = 
-		//objLocation += mGameObject->GetVelocity() * deltaTime * percentage;
+		float deltaTime = Timing::sInstance.GetTimePerUpdate();
+		objLocation += mGameObject->GetVelocity() * deltaTime * percentage;
 
 		SDL_Rect dstRect;
 		dstRect.w = static_cast< int >(mTexture->GetWidth() * objScale);
