@@ -22,6 +22,8 @@ mShouldKeepRunning( true )
     DeathLogManager::StaticInit();
 
 	SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO );
+
+	Timing::sInstance.SetTimePerUpdate(TIME_PER_UPDATE);
 }
 
 Engine::~Engine()
@@ -79,6 +81,7 @@ int Engine::DoRunLoop()
 void Engine::DoFrame()
 {
 	World::sInstance->Update();
+	Timing::sInstance.SetLastUpdateTime(Timing::sInstance.GetFrameStartTime());
 }
 
 	

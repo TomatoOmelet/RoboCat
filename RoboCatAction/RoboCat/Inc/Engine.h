@@ -17,6 +17,10 @@ protected:
 
 	virtual void	DoFrame();
 
+	double previousTime;
+	double remainingTime = 0;
+	double const TIME_PER_UPDATE = 0.016;
+
 private:
 
 
@@ -25,6 +29,6 @@ private:
 
 			bool	mShouldKeepRunning;
 
-
+			
 
 };

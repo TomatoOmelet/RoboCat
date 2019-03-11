@@ -17,7 +17,7 @@ void DeathLogManager::StaticInit()
 
 DeathLogManager::DeathLogManager()
 {
-    string s = "Death Log Manager";
+    string s = " ";
     mEntries.push_front(s);
 }
 

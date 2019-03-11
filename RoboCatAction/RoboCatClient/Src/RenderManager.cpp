@@ -84,3 +84,24 @@ void RenderManager::Render()
 	GraphicsDriver::sInstance->Present();
 
 }
+
+void RenderManager::RenderTheFuture(float percent)
+{
+	GraphicsDriver::sInstance->Clear();
+
+	//RenderManager::sInstance->RenderComponents();
+	//Get the logical viewport so we can pass this to the SpriteComponents when it's draw time
+	SDL_Rect viewport = GraphicsDriver::sInstance->GetLogicalViewport();
+	for (auto cIt = mComponents.begin(), end = mComponents.end(); cIt != end; ++cIt)
+	{
+		(*cIt)->DrawTheFuture(mViewTransform, percent);
+	}
+
+	HUD::sInstance->Render();
+
+	//
+	// Present our back buffer to our front buffer
+	//
+	GraphicsDriver::sInstance->Present();
+
+}

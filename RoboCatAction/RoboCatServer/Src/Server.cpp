@@ -99,10 +99,15 @@ void Server::SetupWorld()
     CreateRandomMilk(5);
     
     mCurrentTime = Timing::sInstance.GetTimef();
+	previousTime = mCurrentTime;
 }
+
+
 
 void Server::DoFrame()
 {
+	double current = Timing::sInstance.GetFrameStartTime();
+
     if(Timing::sInstance.GetFrameStartTime() > mCurrentTime + mMilkSpawnIntervals) {
         mCurrentTime = Timing::sInstance.GetFrameStartTime();
         
@@ -118,9 +123,18 @@ void Server::DoFrame()
 
 	NetworkManagerServer::sInstance->RespawnCats();
 
-	Engine::DoFrame();
+	//fixed timestep update
+	remainingTime += (current - previousTime);
+	previousTime = current;
 
-	NetworkManagerServer::sInstance->SendOutgoingPackets();
+	while (remainingTime >= TIME_PER_UPDATE)
+	{
+		Engine::DoFrame();
+		remainingTime -= TIME_PER_UPDATE;
+		NetworkManagerServer::sInstance->SendOutgoingPackets();
+	}
+
+	
 
 }
 

@@ -42,6 +42,8 @@ public:
 
 			Vector3		GetForwardVector()			const;
 
+	const Vector3&	GetVelocity() const { return mVelocity; }
+	void SetVelocity(const Vector3& inVelocity) { mVelocity = inVelocity; }
 
 			void		SetColor( const Vector3& inColor )					{ mColor = inColor; }
 	const Vector3&		GetColor()					const				{ return mColor; }
@@ -55,11 +57,15 @@ public:
 	virtual uint32_t	Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState ) const	{  ( void ) inOutputStream; ( void ) inDirtyState; return 0; }
 	virtual void		Read( InputMemoryBitStream& inInputStream )									{ ( void ) inInputStream; }
 
+protected:
+	Vector3											mVelocity;
+
 private:
 
 
 	Vector3											mLocation;
 	Vector3											mColor;
+	
 	
 	float											mCollisionRadius;
 
