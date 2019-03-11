@@ -43,15 +43,26 @@ Client::Client()
 	NetworkManagerClient::StaticInit( *serverAddress, name );
 
 	NetworkManagerClient::sInstance->SetSimulatedLatency( 0.0f );
+	previousTime = Timing::sInstance.GetTimef();
 }
 
 
 
 void Client::DoFrame()
 {
+	double current = Timing::sInstance.GetFrameStartTime();
+
 	InputManager::sInstance->Update();
 
-	Engine::DoFrame();
+	//fixed timestep update
+	remainingTime += (current - previousTime);
+	previousTime = current;
+
+	while (remainingTime >= TIME_PER_UPDATE)
+	{
+		Engine::DoFrame();
+		remainingTime -= TIME_PER_UPDATE;
+	}
 
 	NetworkManagerClient::sInstance->ProcessIncomingPackets();
 

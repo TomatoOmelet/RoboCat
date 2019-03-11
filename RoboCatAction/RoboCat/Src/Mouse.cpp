@@ -13,8 +13,9 @@ Mouse::Mouse()
 
 void Mouse::Update()
 {
-	float deltaTime = Timing::sInstance.GetDeltaTime();
+	float deltaTime = Timing::sInstance.GetFrameStartTime() - Timing::sInstance.GetLastUpdateTime();
 	SetLocation(GetLocation() + GetVelocity() * deltaTime);
+	//LOG(std::to_string(deltaTime).c_str(),0)
 	//ProcessCollisionsWithScreenWalls();
 }
 

@@ -79,6 +79,7 @@ int Engine::DoRunLoop()
 void Engine::DoFrame()
 {
 	World::sInstance->Update();
+	Timing::sInstance.SetLastUpdateTime(Timing::sInstance.GetFrameStartTime());
 }
 
 	
