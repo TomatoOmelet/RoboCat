@@ -31,7 +31,6 @@ void RoboCatServer::Update()
 		{
 			const InputState& currentState = unprocessedMove.GetInputState();
 			float deltaTime = unprocessedMove.GetDeltaTime();
-            std::cout << (deltaTime) << std::endl;
 			ProcessInput( deltaTime, currentState );
 			SimulateMovement( deltaTime );
 		}

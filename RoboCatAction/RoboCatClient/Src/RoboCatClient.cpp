@@ -3,9 +3,6 @@
 #include <iostream>
 #include <cstdlib>
 
-using namespace std;
-
-
 MoveList& inputs = InputManager::sInstance->GetMoveList();  // Stores the inputs from the user and sends them out to the
                                                             // server
 vector<GameObject::movementStates> movements;   //  Stores the player's cat's attributes at time t
@@ -33,7 +30,11 @@ void RoboCatClient::Update()
 {
 	//for now, we don't simulate any movement on the client side
 	//we only move when the server tells us to move
-    std::cout << Timing::sInstance.GetDeltaTime() << std::endl;
+//    const Move& newMove = inputs[0];
+//    const InputState& currentState = newMove.GetInputState();
+//    float deltaTime = newMove.GetDeltaTime();
+//    ProcessInput( deltaTime, currentState );
+//    SimulateMovement( deltaTime );
     
     
 }
