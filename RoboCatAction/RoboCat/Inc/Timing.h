@@ -17,6 +17,8 @@ public:
 
 	float GetFrameStartTime() const { return mFrameStartTimef; }
 
+	double GetLastUpdateTime() const { return lastUpdatedTime; }
+	void SetLastUpdateTime(double value) { lastUpdatedTime = value; }
 
 	static Timing sInstance; 
 
@@ -27,5 +29,7 @@ private:
 	double		mLastFrameStartTime;
 	float		mFrameStartTimef;
 	double		mPerfCountDuration;
+
+	double      lastUpdatedTime = 0;
 
 };
