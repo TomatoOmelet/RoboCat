@@ -7,7 +7,7 @@ RoboCatServer::RoboCatServer() :
 	mTimeOfNextShot( 0.f ),
 	mTimeBetweenShots( 0.2f ),
 	mTimeOfNextEmoji(0.f),
-	mTimeBetweenEmojis(0.1f)
+	mTimeBetweenEmojis(0.5f)
 {}
 
 void RoboCatServer::HandleDying()
@@ -56,7 +56,7 @@ void RoboCatServer::Update()
 void RoboCatServer::HandleEmoji()
 {
 	float time = Timing::sInstance.GetFrameStartTime();
-	if(emojiIndex > 0)
+	if(emojiIndex > 0 && time > mTimeOfNextEmoji)
 	{
 		//not exact, but okay
 		mTimeOfNextEmoji = time + mTimeBetweenEmojis;
