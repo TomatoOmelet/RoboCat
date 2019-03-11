@@ -131,9 +131,10 @@ void Server::DoFrame()
 	{
 		Engine::DoFrame();
 		remainingTime -= TIME_PER_UPDATE;
+		NetworkManagerServer::sInstance->SendOutgoingPackets();
 	}
 
-	NetworkManagerServer::sInstance->SendOutgoingPackets();
+	
 
 }
 

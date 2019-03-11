@@ -44,3 +44,32 @@ void SpriteComponent::Draw( const SDL_Rect& inViewTransform )
 			&dstRect, RoboMath::ToDegrees( mGameObject->GetRotation() ), nullptr, SDL_FLIP_NONE );
 	}
 }
+
+void SpriteComponent::DrawTheFuture(const SDL_Rect& inViewTransform, float percentage)
+{
+	if (mTexture)
+	{
+		// Texture color multiplier
+		Vector3 color = mGameObject->GetColor();
+		Uint8 r = static_cast<Uint8>(color.mX * 255);
+		Uint8 g = static_cast<Uint8>(color.mY * 255);
+		Uint8 b = static_cast<Uint8>(color.mZ * 255);
+		SDL_SetTextureColorMod(mTexture->GetData(), r, g, b);
+
+		// Compute the destination rectangle
+		Vector3 objLocation = mGameObject->GetLocation();
+		float objScale = mGameObject->GetScale();
+		float deltaTime = Timing::sInstance.GetTimePerUpdate();
+		objLocation += mGameObject->GetVelocity() * deltaTime * percentage;
+
+		SDL_Rect dstRect;
+		dstRect.w = static_cast< int >(mTexture->GetWidth() * objScale);
+		dstRect.h = static_cast< int >(mTexture->GetHeight() * objScale);
+		dstRect.x = static_cast<int>(objLocation.mX * inViewTransform.w + inViewTransform.x - dstRect.w / 2);
+		dstRect.y = static_cast<int>(objLocation.mY * inViewTransform.h + inViewTransform.y - dstRect.h / 2);
+
+		// Blit the texture
+		SDL_RenderCopyEx(GraphicsDriver::sInstance->GetRenderer(), mTexture->GetData(), nullptr,
+			&dstRect, RoboMath::ToDegrees(mGameObject->GetRotation()), nullptr, SDL_FLIP_NONE);
+	}
+}

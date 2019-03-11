@@ -8,6 +8,7 @@ public:
 	static std::unique_ptr< RenderManager >	sInstance;
 
 	void Render();
+	void RenderTheFuture(float percent);
 	void RenderComponents();
 
 	//vert inefficient method of tracking scene graph...

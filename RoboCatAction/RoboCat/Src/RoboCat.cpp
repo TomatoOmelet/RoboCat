@@ -8,7 +8,6 @@ RoboCat::RoboCat() :
 	GameObject(),
 	mMaxRotationSpeed( 5.f ),
 	mMaxLinearSpeed( 50.f ),
-	mVelocity( Vector3::Zero ),
 	mWallRestitution( 0.1f ),
 	mCatRestitution( 0.1f ),
 	mThrustDir( 0.f ),

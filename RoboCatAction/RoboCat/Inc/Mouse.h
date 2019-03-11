@@ -22,15 +22,15 @@ public:
 
 	virtual bool HandleCollisionWithCat( RoboCat* inCat ) override;
 
-	const Vector3&	GetVelocity() const { return mVelocity; }
-	void SetVelocity(const Vector3& inVelocity) { mVelocity = inVelocity; }
+	//const Vector3&	GetVelocity() const { return mVelocity; }
+	
 
 
 
 	
 
 protected:
-	Vector3 mVelocity;
+	//Vector3 mVelocity;
 	Mouse();
 	void ProcessCollisionsWithScreenWalls();
 };

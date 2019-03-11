@@ -42,6 +42,8 @@ public:
 
 			Vector3		GetForwardVector()			const;
 
+	const Vector3&	GetVelocity() const { return mVelocity; }
+	void SetVelocity(const Vector3& inVelocity) { mVelocity = inVelocity; }
 
 			void		SetColor( const Vector3& inColor )					{ mColor = inColor; }
 	const Vector3&		GetColor()					const				{ return mColor; }
@@ -63,11 +65,15 @@ public:
     };
 
 
+protected:
+	Vector3											mVelocity;
+
 private:
 
 
 	Vector3											mLocation;
 	Vector3											mColor;
+	
 	
 	float											mCollisionRadius;
 
