@@ -31,8 +31,8 @@ public:
 	void		SetPlayerId( uint32_t inPlayerId )			{ mPlayerId = inPlayerId; }
 	uint32_t	GetPlayerId()						const 	{ return mPlayerId; }
 
-	void			SetVelocity( const Vector3& inVelocity )	{ mVelocity = inVelocity; }
-	const Vector3&	GetVelocity()						const	{ return mVelocity; }
+	//void			SetVelocity( const Vector3& inVelocity )	{ mVelocity = inVelocity; }
+	//const Vector3&	GetVelocity()						const	{ return mVelocity; }
 
 	//setter method for robocat
 	void			SetPlayerName(string name)					{ mPlayerName = name; }
@@ -49,7 +49,7 @@ private:
 
 	void	AdjustVelocityByThrust( float inDeltaTime );
 
-	Vector3				mVelocity;
+	//Vector3				mVelocity;
 
 
 	float				mMaxRotationSpeed;
