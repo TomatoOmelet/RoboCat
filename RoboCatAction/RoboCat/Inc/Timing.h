@@ -20,6 +20,9 @@ public:
 	double GetLastUpdateTime() const { return lastUpdatedTime; }
 	void SetLastUpdateTime(double value) { lastUpdatedTime = value; }
 
+	double GetTimePerUpdate() const { return timePerUpdate; }
+	void SetTimePerUpdate(double value) { timePerUpdate = value; }
+
 	static Timing sInstance; 
 
 private:
@@ -31,5 +34,5 @@ private:
 	double		mPerfCountDuration;
 
 	double      lastUpdatedTime = 0;
-	//double		timePerUpdate = 
+	double		timePerUpdate = 0.016;
 };
