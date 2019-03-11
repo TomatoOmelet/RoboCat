@@ -31,5 +31,5 @@ private:
 	double		mPerfCountDuration;
 
 	double      lastUpdatedTime = 0;
-
+	//double		timePerUpdate = 
 };

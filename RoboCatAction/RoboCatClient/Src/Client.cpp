@@ -66,7 +66,8 @@ void Client::DoFrame()
 
 	NetworkManagerClient::sInstance->ProcessIncomingPackets();
 
-	RenderManager::sInstance->Render();
+	float percent = remainingTime / TIME_PER_UPDATE;
+	RenderManager::sInstance->RenderTheFuture(percent);
 
 	NetworkManagerClient::sInstance->SendOutgoingPackets();
 }

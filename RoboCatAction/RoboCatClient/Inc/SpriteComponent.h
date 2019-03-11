@@ -6,6 +6,7 @@ public:
 	~SpriteComponent();
 
 	virtual void		Draw( const SDL_Rect& inViewTransform );
+	virtual void		DrawTheFuture(const SDL_Rect& inViewTransform, float percentage);
 
 			void		SetTexture( TexturePtr inTexture )			{ mTexture = inTexture; }
 
