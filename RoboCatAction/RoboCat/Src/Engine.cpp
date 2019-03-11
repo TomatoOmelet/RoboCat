@@ -18,6 +18,8 @@ mShouldKeepRunning( true )
 	World::StaticInit();
 
 	ScoreBoardManager::StaticInit();
+    
+    DeathLogManager::StaticInit();
 
 	SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO );
 }
@@ -77,6 +79,7 @@ int Engine::DoRunLoop()
 void Engine::DoFrame()
 {
 	World::sInstance->Update();
+	Timing::sInstance.SetLastUpdateTime(Timing::sInstance.GetFrameStartTime());
 }
 
 	

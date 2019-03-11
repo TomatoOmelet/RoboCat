@@ -21,6 +21,7 @@ private:
 	void	RenderRoundTripTime();
 	void	RenderScoreBoard();
 	void	RenderHealth();
+    void    RenderDeathLog();
 	void	RenderText( const string& inStr, const Vector3& origin, const Vector3& inColor );
 
 	Vector3										mBandwidthOrigin;
@@ -28,6 +29,7 @@ private:
 	Vector3										mScoreBoardOrigin;
 	Vector3										mScoreOffset;
 	Vector3										mHealthOffset;
+    Vector3                                     mDeathLogOrigin;
 	SDL_Rect									mViewTransform;
 
 	TTF_Font*									mFont;

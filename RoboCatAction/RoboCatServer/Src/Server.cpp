@@ -99,10 +99,15 @@ void Server::SetupWorld()
     CreateRandomMilk(5);
     
     mCurrentTime = Timing::sInstance.GetTimef();
+	previousTime = mCurrentTime;
 }
+
+
 
 void Server::DoFrame()
 {
+	double current = Timing::sInstance.GetFrameStartTime();
+
     if(Timing::sInstance.GetFrameStartTime() > mCurrentTime + mMilkSpawnIntervals) {
         mCurrentTime = Timing::sInstance.GetFrameStartTime();
         
@@ -118,7 +123,15 @@ void Server::DoFrame()
 
 	NetworkManagerServer::sInstance->RespawnCats();
 
-	Engine::DoFrame();
+	//fixed timestep update
+	remainingTime += (current - previousTime);
+	previousTime = current;
+
+	while (remainingTime >= TIME_PER_UPDATE)
+	{
+		Engine::DoFrame();
+		remainingTime -= TIME_PER_UPDATE;
+	}
 
 	NetworkManagerServer::sInstance->SendOutgoingPackets();
 
@@ -138,6 +151,7 @@ void Server::SpawnCatForPlayer( int inPlayerId )
 	RoboCatPtr cat = std::static_pointer_cast< RoboCat >( GameObjectRegistry::sInstance->CreateGameObject( 'RCAT' ) );
 	cat->SetColor( ScoreBoardManager::sInstance->GetEntry( inPlayerId )->GetColor() );
 	cat->SetPlayerId( inPlayerId );
+	cat->SetPlayerName(ScoreBoardManager::sInstance->GetEntry(inPlayerId)->GetPlayerName());
 	//gotta pick a better spawn location than this...
 	cat->SetLocation( Vector3( 1.f - static_cast< float >( inPlayerId ), 0.f, 0.f ) );
 }

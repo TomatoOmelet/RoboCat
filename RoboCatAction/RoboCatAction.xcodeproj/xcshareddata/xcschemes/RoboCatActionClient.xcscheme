@@ -66,6 +66,10 @@
             argument = "127.0.0.1:45000 xavier"
             isEnabled = "YES">
          </CommandLineArgument>
+         <CommandLineArgument
+            argument = "127.0.0.1:45000 test"
+            isEnabled = "YES">
+         </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>

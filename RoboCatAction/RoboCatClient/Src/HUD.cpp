@@ -9,6 +9,7 @@ mBandwidthOrigin( 50.f, 10.f, 0.0f ),
 mRoundTripTimeOrigin( 50.f, 10.f, 0.0f ),
 mScoreOffset( 0.f, 50.f, 0.0f ),
 mHealthOffset( 1000, 10.f, 0.0f ),
+mDeathLogOrigin( 500.f, 0.0f, 0.0f),
 mHealth( 0 )
 {
 	TTF_Init();
@@ -31,6 +32,7 @@ void HUD::Render()
 	RenderRoundTripTime();
 	RenderScoreBoard();
 	RenderHealth();
+    RenderDeathLog();
 }
 
 void HUD::RenderHealth()
@@ -70,6 +72,16 @@ void HUD::RenderScoreBoard()
 		offset.mY += mScoreOffset.mY;
 	}
 
+}
+
+void HUD::RenderDeathLog() {
+    const deque< string >& logs = DeathLogManager::sInstance->GetEntries();
+    Vector3 offset = mDeathLogOrigin;
+    
+    if(!logs.empty()) {
+        RenderText(logs.front(), offset, Colors::Black);
+    }
+    
 }
 
 void HUD::RenderText( const string& inStr, const Vector3& origin, const Vector3& inColor )

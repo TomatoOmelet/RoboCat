@@ -25,6 +25,9 @@ public:
 	void		SetPlayerId( int inPlayerId )	{ mPlayerId = inPlayerId; }
 	int			GetPlayerId() const				{ return mPlayerId; }
 
+	//getter of the shooter's name
+	string		GetShooterName()				{ return mShooterName; }
+
 	void		InitFromShooter( RoboCat* inShooter );
 
 	virtual void Update() override;
@@ -40,6 +43,8 @@ protected:
 	float		mMuzzleSpeed;
 	int			mPlayerId;
 
+	//shooter's name
+	string		mShooterName;
 };
 
 typedef shared_ptr< Yarn >	YarnPtr;
