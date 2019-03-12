@@ -1,7 +1,7 @@
 ICS 167 RoboCats Networked Game Readme
 
 Wayne (Weiyan Zhu) 60488070 
-Sean
+Sean Kim 74239361
 Muhammad 
 Xavier Chua 89546877
 
