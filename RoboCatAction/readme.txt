@@ -1,9 +1,25 @@
 ICS 167 RoboCats Networked Game Readme
 
-Wayne 
+Wayne (Weiyan Zhu) 60488070 
 Sean Kim 74239361
 Muhammad 
 Xavier Chua 89546877
+
+Github: https://github.com/TomatoOmelet/RoboCat
+
+Fixed Timestep:
+	We can set the frequency update function runs, and it will update in fixed time. The render manager will try to perdict the state between updats and render that.
+
+	Files Modified:
+		GameObject.h/.cpp
+		Mouse.h
+		Robocat.h
+		Timing.h
+		Engine.cpp
+		Server.cpp
+		Client.cpp
+		RenderManager.h/.cpp
+		SpriteComponent.h/.cpp
 
 
 Mechanics Implemented:
@@ -12,13 +28,23 @@ Mice Movement
 	Mice now move in random directions.
 
 	Files Modified:
-
+		Mouse.h/.cpp
+		MouseServer.h/.cpp
+		
 
 Emotes
 	Players can press the 1-3 keys in order to display emotes that other players in the game can also see.
 
 	Files Modified:
-
+		/Assets/
+		Emoji.h/.cpp
+		EmojiServer.h/.cpp
+		EmojiClient.h/.cpp
+		RoboCatServer.h/.cpp
+		RoboCat.h
+		TextureManager.cpp
+		InputState.h/.cpp
+		InputManager.cpp
 
 Milk Game Object
 	Implemented a new game object (Milk with the sprite of the new pokemon grookey) that heals the player's robocat (capped at 15) and increases its speed. Also added some code to spawn milk/mice at every 10 second interval.
