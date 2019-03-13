@@ -5,8 +5,8 @@ public:
 
 	virtual void Update();
 	virtual void	HandleDying() override;
-
 	virtual void	Read( InputMemoryBitStream& inInputStream ) override;
+    virtual void GetMoveList() {movements=InputManager::sInstance->GetMoveList();}
 
 protected:
 	RoboCatClient();
@@ -15,6 +15,7 @@ protected:
 private:
 	float				mTimeLocationBecameOutOfSync;
 	float				mTimeVelocityBecameOutOfSync;
+    MoveList movements;
 	
 	SpriteComponentPtr	mSpriteComponent;
 };

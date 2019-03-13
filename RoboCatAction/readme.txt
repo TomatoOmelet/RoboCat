@@ -2,7 +2,7 @@ ICS 167 RoboCats Networked Game Readme
 
 Wayne (Weiyan Zhu) 60488070 
 Sean Kim 74239361
-Muhammad 
+Muhammad Albayati 84652863
 Xavier Chua 89546877
 
 Github: https://github.com/TomatoOmelet/RoboCat
@@ -85,3 +85,12 @@ Scoreboard Tweaks
 	Files Modified:
 		ScoreBoardManager.h/.cpp
 		RoboCatServer.cpp
+
+Local prediction:
+	By using a set float time that we want to go back in the past, we can determine how many frames we want to predict. The client has a list of predicted movements separate from the input Manager's, and adds moves that are ahead of the indicated past time, which are then processed by the client
+
+	Files Modified:
+		RoboCat.h
+		RoboCat.cpp
+		RoboCatClient.h
+		RoboCatClient.cpp

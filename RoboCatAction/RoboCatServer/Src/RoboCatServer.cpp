@@ -1,4 +1,6 @@
 #include <RoboCatServerPCH.h>
+#include <iostream>
+#include <cstdlib>
 
 RoboCatServer::RoboCatServer() :
 	mCatControlType( ESCT_Human ),
@@ -46,6 +48,10 @@ void RoboCatServer::Update()
 		NetworkManagerServer::sInstance->SetStateDirty( GetNetworkId(), ECRS_Pose );
 	}
 }
+
+//GameObject::movementStates RoboCat::GetPredictedStates() {
+//    float deltaTime
+//}
 
 void RoboCatServer::HandleEmoji()
 {

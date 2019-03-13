@@ -30,6 +30,7 @@ private:
 
 	void HandleShooting();
 	void HandleEmoji();
+    GameObject::movementStates GetPredictedState();
 	ECatControlType	mCatControlType;
 
 

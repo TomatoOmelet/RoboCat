@@ -17,6 +17,7 @@ RoboCat::RoboCat() :
 	mHealth( 10 )
 {
 	SetCollisionRadius( 0.5f );
+    predictedTime = 5;
 }
 
 void RoboCat::ProcessInput( float inDeltaTime, const InputState& inInputState )
@@ -56,7 +57,7 @@ void RoboCat::SimulateMovement( float inDeltaTime )
 
 void RoboCat::Update()
 {
-	
+    minTime = Timing::sInstance.GetTime();
 }
 
 void RoboCat::ProcessCollisions()
