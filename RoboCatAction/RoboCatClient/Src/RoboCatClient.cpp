@@ -28,13 +28,22 @@ void RoboCatClient::HandleDying()
 
 void RoboCatClient::Update()
 {
-	//for now, we don't simulate any movement on the client side
-	//we only move when the server tells us to move
-//    const Move& newMove = inputs[0];
-//    const InputState& currentState = newMove.GetInputState();
-//    float deltaTime = newMove.GetDeltaTime();
-//    ProcessInput( deltaTime, currentState );
-//    SimulateMovement( deltaTime );
+    MoveList& currentMoves = InputManager::sInstance->GetMoveList();
+    for( const Move& unprocessedMove : currentMoves) {
+        if(unprocessedMove.GetTimestamp() < RoboCat::minTime) {
+            break;
+        } else {
+            movements.AddMove(unprocessedMove);
+        }
+    }
+    for( const Move& unprocessedMove : movements )
+    {
+        const InputState& currentState = unprocessedMove.GetInputState();
+        float deltaTime = unprocessedMove.GetDeltaTime();
+        ProcessInput( deltaTime, currentState );
+        SimulateMovement( deltaTime );
+    }
+    movements.Clear();
     
     
 }

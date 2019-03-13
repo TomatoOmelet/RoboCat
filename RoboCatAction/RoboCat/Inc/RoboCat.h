@@ -12,7 +12,8 @@ public:
 
 		ECRS_AllState = ECRS_Pose | ECRS_Color | ECRS_PlayerId | ECRS_Health
 	};
-
+    float predictedTime;
+    float minTime;
 
 	static	GameObject*	StaticCreate()			{ return new RoboCat(); }
 
