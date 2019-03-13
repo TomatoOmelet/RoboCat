@@ -5,6 +5,8 @@ Sean Kim 74239361
 Muhammad 
 Xavier Chua 89546877
 
+Github: https://github.com/TomatoOmelet/RoboCat
+
 Fixed Timestep:
 	We can set the frequency update function runs, and it will update in fixed time. The render manager will try to perdict the state between updats and render that.
 
